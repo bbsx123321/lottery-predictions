@@ -309,7 +309,7 @@ cd scripts; node build-pen-gallery.js
 
 ### 另一条路：wechatide-skill 工具链
 
-已安装 `wechatide-skill` v0.3.11（`C:\Users\boss\.minimax\skills\wechatide-skill`），
+已安装 `wechatide-skill` v0.3.11（`~/.minimax/skills/wechatide-skill`），
 它提供 40+ 个原子工具，比手搓 automator 脚本省事得多：
 
 ```powershell
@@ -633,7 +633,7 @@ pen --in design\home.pen --out design\home-v2.pen --prompt "<改哪一块>" `
     --model 'pi;minimax;MiniMax-M3.1-Flash' --effort low --export design\home-v2.png
 
 # 3) 提取 token（色值 / 尺寸），直接对照写 WXSS
-node C:\Users\boss\.minimax\skills\pen-design-pipeline\scripts\extract-pen-spec.js design\home.pen
+node ~/.minimax/skills/pen-design-pipeline/scripts/extract-pen-spec.js design\home.pen
 
 # 4) 在 Pencil 桌面端打开稿子看 / 改（命令行传路径无效，必须走 Open File）
 cd scripts; .\open-pen-design.ps1 -PenFile "..\design\home.pen"
