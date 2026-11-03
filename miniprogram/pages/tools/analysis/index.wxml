@@ -1,0 +1,167 @@
+<view class="lpage" style="padding-bottom: {{bottomPad}}px">
+
+  <view class="ltabs">
+    <view
+      class="ltab {{item.active ? 'ltab--active' : ''}}"
+      wx:for="{{tabs}}"
+      wx:key="key"
+      data-key="{{item.key}}"
+      bindtap="onSwitchTab"
+    >{{item.name}}</view>
+  </view>
+
+  <!-- 模式 -->
+  <view class="lseg">
+    <view
+      class="lseg-item {{item.key === mode ? 'lseg-item--active' : ''}}"
+      wx:for="{{modeOptions}}"
+      wx:key="key"
+      data-mode="{{item.key}}"
+      bindtap="onSwitchMode"
+    >{{item.label}}</view>
+  </view>
+
+  <!-- 号码区 -->
+  <view class="lseg" wx:if="{{partOptions.length > 1}}">
+    <view
+      class="lseg-item {{item.key === part ? 'lseg-item--active' : ''}}"
+      wx:for="{{partOptions}}"
+      wx:key="key"
+      data-part="{{item.key}}"
+      bindtap="onSwitchPart"
+    >{{item.label}}</view>
+  </view>
+
+  <view class="lstate" wx:if="{{loading && !summary.length}}">正在分析历史数据…</view>
+  <view class="lstate lstate--error" wx:if="{{error}}">{{error}}</view>
+
+  <!-- 概览 -->
+  <view class="lcard" wx:if="{{summary.length}}">
+    <view class="lstats">
+      <view class="lstat" wx:for="{{summary}}" wx:key="label">
+        <text class="lstat-value">{{item.value}}</text>
+        <text class="lstat-label">{{item.label}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 吉号分析 -->
+  <block wx:if="{{mode === 'lucky'}}">
+    <view class="lcard" wx:if="{{hot.length}}">
+      <view class="lcard-head">
+        <text class="lcard-title">热号 / 冷号</text>
+        <text class="lcard-meta">出现频次</text>
+      </view>
+
+      <view class="ahot">
+        <text class="ahot-label">热号</text>
+        <view class="ahot-list">
+          <text class="apill apill--hot" wx:for="{{hot}}" wx:key="n">{{item.text}}<text class="apill-count">{{item.count}}</text></text>
+        </view>
+      </view>
+
+      <view class="ahot ahot--cold">
+        <text class="ahot-label">冷号</text>
+        <view class="ahot-list">
+          <text class="apill apill--cold" wx:for="{{cold}}" wx:key="n">{{item.text}}<text class="apill-count">{{item.count}}</text></text>
+        </view>
+      </view>
+
+      <view class="ahot ahot--miss" wx:if="{{missing.length}}">
+        <text class="ahot-label">未出现</text>
+        <text class="ahot-miss-text">{{missing.length}} 个号码在统计区间内一次未开</text>
+      </view>
+    </view>
+
+    <view class="lcard" wx:if="{{freqRows.length}}">
+      <view class="lcard-head">
+        <text class="lcard-title">号码频次与遗漏</text>
+        <text class="lcard-meta">近 {{summary[0].value}}</text>
+      </view>
+
+      <view class="afreq">
+        <view class="afreq-row afreq-row--head">
+          <text class="afreq-n">号码</text>
+          <text class="afreq-c">次数</text>
+          <text class="afreq-o">遗漏</text>
+          <text class="afreq-b afreq-b--head">热度</text>
+        </view>
+        <view class="afreq-row" wx:for="{{freqRows}}" wx:key="n">
+          <text class="afreq-n afreq-n--{{item.hot ? 'hot' : (item.cold ? 'cold' : '')}}">{{item.text}}</text>
+          <text class="afreq-c">{{item.count}}</text>
+          <text class="afreq-o">{{item.omission}}</text>
+          <view class="afreq-b">
+            <view class="afreq-bar" style="width: {{item.percent}}%"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- 智能规律 -->
+  <block wx:if="{{mode === 'pattern'}}">
+    <view class="lcard" wx:if="{{patterns.length}}">
+      <view class="lcard-head">
+        <text class="lcard-title">智能规律</text>
+        <text class="lcard-meta">基于近 {{summary[0].value}}</text>
+      </view>
+
+      <view class="apat" wx:for="{{patterns}}" wx:key="key">
+        <view class="apat-head">
+          <text class="apat-label">{{item.label}}</text>
+          <text class="apat-value apat-value--{{item.level}}">{{item.value}}</text>
+        </view>
+        <text class="apat-detail">{{item.detail}}</text>
+      </view>
+    </view>
+  </block>
+
+  <!-- 选号分布 -->
+  <block wx:if="{{mode === 'dist'}}">
+    <view class="lcard" wx:if="{{zones.length}}">
+      <view class="lcard-head">
+        <text class="lcard-title">区间分布</text>
+        <text class="lcard-meta">号码落点</text>
+      </view>
+
+      <view class="abar-row" wx:for="{{zones}}" wx:key="label">
+        <text class="abar-label">{{item.label}}</text>
+        <view class="abar-track">
+          <view class="abar-fill" style="width: {{item.percent}}%"></view>
+        </view>
+        <text class="abar-value">{{item.count}}</text>
+      </view>
+    </view>
+
+    <view class="lcard" wx:if="{{tails.length}}">
+      <view class="lcard-head">
+        <text class="lcard-title">尾数分布</text>
+        <text class="lcard-meta">0-9 出现次数</text>
+      </view>
+
+      <view class="atail">
+        <view class="atail-col" wx:for="{{tails}}" wx:key="tail">
+          <view class="atail-track">
+            <view class="atail-fill" style="height: {{item.percent}}%"></view>
+          </view>
+          <text class="atail-count">{{item.count}}</text>
+          <text class="atail-tail">{{item.tail}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="lcard" wx:if="{{shape.length}}">
+      <view class="lcard-head">
+        <text class="lcard-title">形态特征</text>
+      </view>
+      <view class="ashape" wx:for="{{shape}}" wx:key="label">
+        <view class="ashape-main">
+          <text class="ashape-label">{{item.label}}</text>
+          <text class="ashape-detail">{{item.detail}}</text>
+        </view>
+        <text class="ashape-value">{{item.value}}</text>
+      </view>
+    </view>
+  </block>
+
+</view>

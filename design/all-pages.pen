@@ -1,0 +1,1335 @@
+{
+  "version": "2.21",
+  "children": [
+    {
+      "type": "frame",
+      "id": "BFVO4",
+      "name": "彩票预测 · 全页面设计",
+      "x": 0,
+      "y": 0,
+      "width": 2522,
+      "height": 3958,
+      "fill": "$bg",
+      "layout": "vertical",
+      "gap": 0,
+      "padding": [
+        48,
+        64,
+        64,
+        64
+      ],
+      "clip": true,
+      "children": [
+        {
+          "type": "frame",
+          "id": "5FA4F",
+          "name": "标题区",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 10,
+          "alignItems": "flex_start",
+          "children": [
+            {
+              "type": "text",
+              "id": "1UKKS",
+              "name": "大标题",
+              "fill": "$ink",
+              "content": "彩票预测小程序 · 全页面设计预览",
+              "fontFamily": "$fontcn",
+              "fontSize": 30,
+              "fontWeight": "bold"
+            },
+            {
+              "type": "text",
+              "id": "PZNVH",
+              "name": "副标题",
+              "fill": "$ink2",
+              "content": "底部 tab 三页（首页 / 开奖 / 我的）+ 7 个工具页（含 AI 设置 / AI 分析）+ 环境自检，共 11 个页面 + 1 张设计稿 · 375×812 · 数据来自官方开奖接口",
+              "fontFamily": "$fontcn",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "LO0WH",
+          "name": "第 1 行",
+          "width": "fill_container",
+          "gap": 32,
+          "alignItems": "flex_start",
+          "children": [
+            {
+              "type": "frame",
+              "id": "ZC1LK",
+              "name": "格 · 01 · 首页",
+              "width": 774,
+              "layout": "vertical",
+              "gap": 10,
+              "alignItems": "flex_start",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "NOM8R",
+                  "name": "标题",
+                  "fill": "$ink",
+                  "content": "01 · 首页",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 14,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "text",
+                  "id": "3Q8BY",
+                  "name": "说明",
+                  "fill": "$ink3",
+                  "content": "左=pen.dev 设计稿，右=代码实拍；下面的色值和间距都是从左这张稿子里提取的",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 11,
+                  "fontWeight": "normal",
+                  "width": 774,
+                  "lineHeight": 1.35
+                },
+                {
+                  "type": "frame",
+                  "id": "IU2QV",
+                  "name": "手机组 · 01 · 首页",
+                  "layout": "horizontal",
+                  "gap": 24,
+                  "alignItems": "flex_start",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "1ZQ2L",
+                      "name": "手机 · 首页 · home",
+                      "width": 375,
+                      "height": 812,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./home.png",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": 28,
+                      "stroke": "#e6e8ec",
+                      "strokeWidth": 1,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#1b1e2314",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 24
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "BY088",
+                      "name": "手机 · 首页 · home",
+                      "width": 375,
+                      "height": 812,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./screenshot-home.png",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": 28,
+                      "stroke": "#e6e8ec",
+                      "strokeWidth": 1,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#1b1e2314",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 24
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "AEOP0",
+                  "name": "路由",
+                  "fill": "$ink3",
+                  "content": "design/home.pen ↔ pages/index/index",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "BPSO1",
+              "name": "格 · 02 · 开奖",
+              "width": 375,
+              "layout": "vertical",
+              "gap": 10,
+              "alignItems": "flex_start",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "QI11E",
+                  "name": "标题",
+                  "fill": "$ink",
+                  "content": "02 · 开奖",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 14,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "text",
+                  "id": "9CRGH",
+                  "name": "说明",
+                  "fill": "$ink3",
+                  "content": "底部 tab 第二个入口：四个彩种的全部开奖号码，可加载更多",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 11,
+                  "fontWeight": "normal",
+                  "width": 375,
+                  "lineHeight": 1.35
+                },
+                {
+                  "type": "frame",
+                  "id": "89WV7",
+                  "name": "手机组 · 02 · 开奖",
+                  "layout": "horizontal",
+                  "gap": 24,
+                  "alignItems": "flex_start",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "2GT3P",
+                      "name": "手机 · 开奖 · draws",
+                      "width": 375,
+                      "height": 812,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./screenshot-draws.png",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": 28,
+                      "stroke": "#e6e8ec",
+                      "strokeWidth": 1,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#1b1e2314",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 24
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "MRAPF",
+                  "name": "路由",
+                  "fill": "$ink3",
+                  "content": "pages/draws/index",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "5FQWO",
+              "name": "格 · 03 · 我的",
+              "width": 774,
+              "layout": "vertical",
+              "gap": 10,
+              "alignItems": "flex_start",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "INNS7",
+                  "name": "标题",
+                  "fill": "$ink",
+                  "content": "03 · 我的",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 14,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "text",
+                  "id": "78K19",
+                  "name": "说明",
+                  "fill": "$ink3",
+                  "content": "底部 tab 第三个入口：左=已登录（昵称头像来自用户自己），右=未登录时的授权卡",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 11,
+                  "fontWeight": "normal",
+                  "width": 774,
+                  "lineHeight": 1.35
+                },
+                {
+                  "type": "frame",
+                  "id": "VJN50",
+                  "name": "手机组 · 03 · 我的",
+                  "layout": "horizontal",
+                  "gap": 24,
+                  "alignItems": "flex_start",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "273XG",
+                      "name": "手机 · 我的 · mine",
+                      "width": 375,
+                      "height": 812,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./screenshot-mine.png",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": 28,
+                      "stroke": "#e6e8ec",
+                      "strokeWidth": 1,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#1b1e2314",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 24
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "DO1E3",
+                      "name": "手机 · 我的 · mine-auth",
+                      "width": 375,
+                      "height": 812,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./screenshot-mine-auth.png",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": 28,
+                      "stroke": "#e6e8ec",
+                      "strokeWidth": 1,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#1b1e2314",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 24
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "CYHL3",
+                  "name": "路由",
+                  "fill": "$ink3",
+                  "content": "pages/mine/index",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "I7KBZ",
+              "name": "格 · 04 · AI 设置",
+              "width": 375,
+              "layout": "vertical",
+              "gap": 10,
+              "alignItems": "flex_start",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "0P9OH",
+                  "name": "标题",
+                  "fill": "$ink",
+                  "content": "04 · AI 设置",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 14,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "text",
+                  "id": "9WEC9",
+                  "name": "说明",
+                  "fill": "$ink3",
+                  "content": "最多 3 套模型配置可切换；模型 / 端点 / 密钥 / 温度 / 分析风格，客户端直连 MiniMax",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 11,
+                  "fontWeight": "normal",
+                  "width": 375,
+                  "lineHeight": 1.35
+                },
+                {
+                  "type": "frame",
+                  "id": "Z36RT",
+                  "name": "手机组 · 04 · AI 设置",
+                  "layout": "horizontal",
+                  "gap": 24,
+                  "alignItems": "flex_start",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "OC1X4",
+                      "name": "手机 · AI 设置 · ai-settings",
+                      "width": 375,
+                      "height": 812,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./screenshot-ai-settings.png",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": 28,
+                      "stroke": "#e6e8ec",
+                      "strokeWidth": 1,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#1b1e2314",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 24
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "JV6VA",
+                  "name": "路由",
+                  "fill": "$ink3",
+                  "content": "pages/tools/ai-settings/index",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "TN3NI",
+          "name": "第 2 行",
+          "width": "fill_container",
+          "gap": 32,
+          "alignItems": "flex_start",
+          "children": [
+            {
+              "type": "frame",
+              "id": "YLYV1",
+              "name": "格 · 05 · AI 分析",
+              "width": 1173,
+              "layout": "vertical",
+              "gap": 10,
+              "alignItems": "flex_start",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "99P6H",
+                  "name": "标题",
+                  "fill": "$ink",
+                  "content": "05 · AI 分析",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 14,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "text",
+                  "id": "4QDUS",
+                  "name": "说明",
+                  "fill": "$ink3",
+                  "content": "左=参数 + 8 个统计指标（一次最多取 500 期），中=「生成 AI 分析」按钮（文字居中），右=模型解读正文",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 11,
+                  "fontWeight": "normal",
+                  "width": 1173,
+                  "lineHeight": 1.35
+                },
+                {
+                  "type": "frame",
+                  "id": "EPM0B",
+                  "name": "手机组 · 05 · AI 分析",
+                  "layout": "horizontal",
+                  "gap": 24,
+                  "alignItems": "flex_start",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "I2EFY",
+                      "name": "手机 · AI 分析 · ai-analysis-top",
+                      "width": 375,
+                      "height": 812,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./screenshot-ai-analysis-top.png",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": 28,
+                      "stroke": "#e6e8ec",
+                      "strokeWidth": 1,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#1b1e2314",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 24
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "MLUHQ",
+                      "name": "手机 · AI 分析 · ai-analysis-btn",
+                      "width": 375,
+                      "height": 812,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./screenshot-ai-analysis-btn.png",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": 28,
+                      "stroke": "#e6e8ec",
+                      "strokeWidth": 1,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#1b1e2314",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 24
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "OXHIR",
+                      "name": "手机 · AI 分析 · ai-analysis",
+                      "width": 375,
+                      "height": 812,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./screenshot-ai-analysis.png",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": 28,
+                      "stroke": "#e6e8ec",
+                      "strokeWidth": 1,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#1b1e2314",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 24
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "O4T8R",
+                  "name": "路由",
+                  "fill": "$ink3",
+                  "content": "pages/tools/ai-analysis/index",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "XELUI",
+              "name": "格 · 06 · 走势图选择页",
+              "width": 375,
+              "layout": "vertical",
+              "gap": 10,
+              "alignItems": "flex_start",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "DF1D0",
+                  "name": "标题",
+                  "fill": "$ink",
+                  "content": "06 · 走势图选择页",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 14,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "text",
+                  "id": "WPWUF",
+                  "name": "说明",
+                  "fill": "$ink3",
+                  "content": "全国 / 地方 两个范围，按彩种分组列出全部走势算法",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 11,
+                  "fontWeight": "normal",
+                  "width": 375,
+                  "lineHeight": 1.35
+                },
+                {
+                  "type": "frame",
+                  "id": "MQGX3",
+                  "name": "手机组 · 06 · 走势图选择页",
+                  "layout": "horizontal",
+                  "gap": 24,
+                  "alignItems": "flex_start",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "CN31Z",
+                      "name": "手机 · 走势图选择页 · trend-menu",
+                      "width": 375,
+                      "height": 812,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./screenshot-trend-menu.png",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": 28,
+                      "stroke": "#e6e8ec",
+                      "strokeWidth": 1,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#1b1e2314",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 24
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "ZCHW4",
+                  "name": "路由",
+                  "fill": "$ink3",
+                  "content": "pages/tools/trend/index",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "D2BFL",
+              "name": "格 · 07 · 走势图详情页",
+              "width": 375,
+              "layout": "vertical",
+              "gap": 10,
+              "alignItems": "flex_start",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "02PC0",
+                  "name": "标题",
+                  "fill": "$ink",
+                  "content": "07 · 走势图详情页",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 14,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "text",
+                  "id": "GPV1T",
+                  "name": "说明",
+                  "fill": "$ink3",
+                  "content": "期次/星期固定列 + 号码遗漏矩阵，命中红圈，底部可开画线",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 11,
+                  "fontWeight": "normal",
+                  "width": 375,
+                  "lineHeight": 1.35
+                },
+                {
+                  "type": "frame",
+                  "id": "R17QZ",
+                  "name": "手机组 · 07 · 走势图详情页",
+                  "layout": "horizontal",
+                  "gap": 24,
+                  "alignItems": "flex_start",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "TECD3",
+                      "name": "手机 · 走势图详情页 · trend",
+                      "width": 375,
+                      "height": 812,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./screenshot-trend.png",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": 28,
+                      "stroke": "#e6e8ec",
+                      "strokeWidth": 1,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#1b1e2314",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 24
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "WZV57",
+                  "name": "路由",
+                  "fill": "$ink3",
+                  "content": "pages/tools/trend/detail",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "I9086",
+              "name": "格 · 08 · 往期开奖",
+              "width": 375,
+              "layout": "vertical",
+              "gap": 10,
+              "alignItems": "flex_start",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "LCMCJ",
+                  "name": "标题",
+                  "fill": "$ink",
+                  "content": "08 · 往期开奖",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 14,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "text",
+                  "id": "TYC8G",
+                  "name": "说明",
+                  "fill": "$ink3",
+                  "content": "历史期次表格，20 条 / 页，最多 300 期",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 11,
+                  "fontWeight": "normal",
+                  "width": 375,
+                  "lineHeight": 1.35
+                },
+                {
+                  "type": "frame",
+                  "id": "94L37",
+                  "name": "手机组 · 08 · 往期开奖",
+                  "layout": "horizontal",
+                  "gap": 24,
+                  "alignItems": "flex_start",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "BSS4B",
+                      "name": "手机 · 往期开奖 · history",
+                      "width": 375,
+                      "height": 812,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./screenshot-history.png",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": 28,
+                      "stroke": "#e6e8ec",
+                      "strokeWidth": 1,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#1b1e2314",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 24
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "CR4GC",
+                  "name": "路由",
+                  "fill": "$ink3",
+                  "content": "pages/tools/history/index",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "33DAU",
+          "name": "第 3 行",
+          "width": "fill_container",
+          "gap": 32,
+          "alignItems": "flex_start",
+          "children": [
+            {
+              "type": "frame",
+              "id": "997VN",
+              "name": "格 · 09 · 幸运选号 / 模拟选号",
+              "width": 375,
+              "layout": "vertical",
+              "gap": 10,
+              "alignItems": "flex_start",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "VO6QY",
+                  "name": "标题",
+                  "fill": "$ink",
+                  "content": "09 · 幸运选号 / 模拟选号",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 14,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "text",
+                  "id": "X3DCE",
+                  "name": "说明",
+                  "fill": "$ink3",
+                  "content": "三种策略：热号优先 / 纯随机 / 按历史形态过滤，生成后自动存入「我的」",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 11,
+                  "fontWeight": "normal",
+                  "width": 375,
+                  "lineHeight": 1.35
+                },
+                {
+                  "type": "frame",
+                  "id": "2KDS4",
+                  "name": "手机组 · 09 · 幸运选号 / 模拟选号",
+                  "layout": "horizontal",
+                  "gap": 24,
+                  "alignItems": "flex_start",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "X0PNZ",
+                      "name": "手机 · 幸运选号 / 模拟选号 · pick",
+                      "width": 375,
+                      "height": 812,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./screenshot-pick.png",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": 28,
+                      "stroke": "#e6e8ec",
+                      "strokeWidth": 1,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#1b1e2314",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 24
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "2F7DU",
+                  "name": "路由",
+                  "fill": "$ink3",
+                  "content": "pages/tools/pick/index",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ES3G6",
+              "name": "格 · 10 · 吉号分析",
+              "width": 375,
+              "layout": "vertical",
+              "gap": 10,
+              "alignItems": "flex_start",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "KCQ3B",
+                  "name": "标题",
+                  "fill": "$ink",
+                  "content": "10 · 吉号分析",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 14,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "text",
+                  "id": "EPGMG",
+                  "name": "说明",
+                  "fill": "$ink3",
+                  "content": "频次 / 当前遗漏 / 和值 / 跨度 / 奇偶比 / 大小比",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 11,
+                  "fontWeight": "normal",
+                  "width": 375,
+                  "lineHeight": 1.35
+                },
+                {
+                  "type": "frame",
+                  "id": "L82CE",
+                  "name": "手机组 · 10 · 吉号分析",
+                  "layout": "horizontal",
+                  "gap": 24,
+                  "alignItems": "flex_start",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "1WLPB",
+                      "name": "手机 · 吉号分析 · analysis",
+                      "width": 375,
+                      "height": 812,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./screenshot-analysis.png",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": 28,
+                      "stroke": "#e6e8ec",
+                      "strokeWidth": 1,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#1b1e2314",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 24
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "BLR4D",
+                  "name": "路由",
+                  "fill": "$ink3",
+                  "content": "pages/tools/analysis/index?mode=lucky",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "1KHU6",
+              "name": "格 · 11 · 智能规律",
+              "width": 375,
+              "layout": "vertical",
+              "gap": 10,
+              "alignItems": "flex_start",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "GNQVI",
+                  "name": "标题",
+                  "fill": "$ink",
+                  "content": "11 · 智能规律",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 14,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "text",
+                  "id": "LFI7W",
+                  "name": "说明",
+                  "fill": "$ink3",
+                  "content": "自动发现 8 类规律，每条带出现概率",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 11,
+                  "fontWeight": "normal",
+                  "width": 375,
+                  "lineHeight": 1.35
+                },
+                {
+                  "type": "frame",
+                  "id": "WE9EU",
+                  "name": "手机组 · 11 · 智能规律",
+                  "layout": "horizontal",
+                  "gap": 24,
+                  "alignItems": "flex_start",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "5DLGF",
+                      "name": "手机 · 智能规律 · analysis-pattern",
+                      "width": 375,
+                      "height": 812,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./screenshot-analysis-pattern.png",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": 28,
+                      "stroke": "#e6e8ec",
+                      "strokeWidth": 1,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#1b1e2314",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 24
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "NLYGP",
+                  "name": "路由",
+                  "fill": "$ink3",
+                  "content": "pages/tools/analysis/index?mode=pattern",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "9LYWR",
+              "name": "格 · 12 · 选号分布",
+              "width": 375,
+              "layout": "vertical",
+              "gap": 10,
+              "alignItems": "flex_start",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "PD7S5",
+                  "name": "标题",
+                  "fill": "$ink",
+                  "content": "12 · 选号分布",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 14,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "text",
+                  "id": "QJB4V",
+                  "name": "说明",
+                  "fill": "$ink3",
+                  "content": "区间分布 + 尾数分布",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 11,
+                  "fontWeight": "normal",
+                  "width": 375,
+                  "lineHeight": 1.35
+                },
+                {
+                  "type": "frame",
+                  "id": "R8TIK",
+                  "name": "手机组 · 12 · 选号分布",
+                  "layout": "horizontal",
+                  "gap": 24,
+                  "alignItems": "flex_start",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "2OWN0",
+                      "name": "手机 · 选号分布 · analysis-dist",
+                      "width": 375,
+                      "height": 812,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./screenshot-analysis-dist.png",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": 28,
+                      "stroke": "#e6e8ec",
+                      "strokeWidth": 1,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#1b1e2314",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 24
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "TLNBS",
+                  "name": "路由",
+                  "fill": "$ink3",
+                  "content": "pages/tools/analysis/index?mode=dist",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ZAMU1",
+          "name": "第 4 行",
+          "width": "fill_container",
+          "gap": 32,
+          "alignItems": "flex_start",
+          "children": [
+            {
+              "type": "frame",
+              "id": "DVZ79",
+              "name": "格 · 13 · 环境自检",
+              "width": 375,
+              "layout": "vertical",
+              "gap": 10,
+              "alignItems": "flex_start",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Y4KRM",
+                  "name": "标题",
+                  "fill": "$ink",
+                  "content": "13 · 环境自检",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 14,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "text",
+                  "id": "4IP9V",
+                  "name": "说明",
+                  "fill": "$ink3",
+                  "content": "云函数 / 数据源 / 同步状态诊断页",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 11,
+                  "fontWeight": "normal",
+                  "width": 375,
+                  "lineHeight": 1.35
+                },
+                {
+                  "type": "frame",
+                  "id": "HBBQI",
+                  "name": "手机组 · 13 · 环境自检",
+                  "layout": "horizontal",
+                  "gap": 24,
+                  "alignItems": "flex_start",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "KIHLO",
+                      "name": "手机 · 环境自检 · debug",
+                      "width": 375,
+                      "height": 812,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./screenshot-debug.png",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": 28,
+                      "stroke": "#e6e8ec",
+                      "strokeWidth": 1,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#1b1e2314",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 24
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "IFU44",
+                  "name": "路由",
+                  "fill": "$ink3",
+                  "content": "pages/debug/index",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "accent": {
+      "type": "color",
+      "value": "#e8483f"
+    },
+    "accent-soft": {
+      "type": "color",
+      "value": "#fdeeec"
+    },
+    "accent-deep": {
+      "type": "color",
+      "value": "#c4362e"
+    },
+    "bg": {
+      "type": "color",
+      "value": "#f4f5f8"
+    },
+    "card": {
+      "type": "color",
+      "value": "#ffffff"
+    },
+    "ink": {
+      "type": "color",
+      "value": "#1b1e23"
+    },
+    "ink2": {
+      "type": "color",
+      "value": "#5d6672"
+    },
+    "ink3": {
+      "type": "color",
+      "value": "#9aa3ae"
+    },
+    "line": {
+      "type": "color",
+      "value": "#eef0f3"
+    },
+    "row-tint": {
+      "type": "color",
+      "value": "#f8f9fb"
+    },
+    "blue": {
+      "type": "color",
+      "value": "#2f6ae0"
+    },
+    "fontcn": {
+      "type": "string",
+      "value": "Noto Sans SC"
+    },
+    "tool-red": {
+      "type": "color",
+      "value": "#e8483f"
+    },
+    "tool-red-soft": {
+      "type": "color",
+      "value": "#fdeeec"
+    },
+    "tool-orange": {
+      "type": "color",
+      "value": "#e08423"
+    },
+    "tool-orange-soft": {
+      "type": "color",
+      "value": "#fdf1e2"
+    },
+    "tool-blue": {
+      "type": "color",
+      "value": "#2f6ae0"
+    },
+    "tool-blue-soft": {
+      "type": "color",
+      "value": "#eaf0fd"
+    },
+    "tool-green": {
+      "type": "color",
+      "value": "#2f9e63"
+    },
+    "tool-green-soft": {
+      "type": "color",
+      "value": "#e7f5ed"
+    },
+    "tool-purple": {
+      "type": "color",
+      "value": "#7a5af0"
+    },
+    "tool-purple-soft": {
+      "type": "color",
+      "value": "#f1ecfd"
+    },
+    "tool-teal": {
+      "type": "color",
+      "value": "#1e9aa0"
+    },
+    "tool-teal-soft": {
+      "type": "color",
+      "value": "#e2f4f4"
+    },
+    "tool-pink": {
+      "type": "color",
+      "value": "#e0558f"
+    },
+    "tool-pink-soft": {
+      "type": "color",
+      "value": "#fdeaf2"
+    }
+  },
+  "fileToken": "5bee5d85-2943-44db-877a-8045f9a2d563"
+}

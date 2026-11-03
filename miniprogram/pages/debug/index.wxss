@@ -1,0 +1,307 @@
+.page {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  background: linear-gradient(225deg, #d93a31 0%, #e8483f 52%, #f0734a 100%);
+  padding: 52rpx 40rpx 56rpx;
+}
+
+.hero-title {
+  display: block;
+  font-size: 44rpx;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 1rpx;
+}
+
+.hero-sub {
+  display: block;
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.hero-pill {
+  display: inline-block;
+  margin-top: 28rpx;
+  padding: 12rpx 26rpx;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.hero-pill--fail {
+  background: rgba(0, 0, 0, 0.26);
+}
+
+.hero-pill-text {
+  font-size: 26rpx;
+  color: #ffffff;
+}
+
+/* ---------- Card ---------- */
+
+.card {
+  margin: 24rpx 32rpx 0;
+  padding: 32rpx;
+  background: var(--surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+.card-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 12rpx;
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.card-meta {
+  font-size: 24rpx;
+  color: var(--text-muted);
+}
+
+/* ---------- Check rows ---------- */
+
+.check-row {
+  display: flex;
+  align-items: flex-start;
+  padding: 24rpx 0;
+  border-top: 2rpx solid var(--line);
+}
+
+.check-row:first-child {
+  padding-top: 12rpx;
+  border-top: none;
+}
+
+.check-dot {
+  flex-shrink: 0;
+  width: 16rpx;
+  height: 16rpx;
+  margin-top: 14rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+}
+
+.check-dot--ok {
+  background: var(--ok);
+}
+
+.check-dot--todo {
+  background: var(--warn);
+}
+
+.check-dot--fail {
+  background: var(--danger);
+}
+
+.check-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.check-label {
+  font-size: 30rpx;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.check-detail {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  word-break: break-all;
+}
+
+.check-badge {
+  flex-shrink: 0;
+  margin-left: 16rpx;
+  padding: 6rpx 18rpx;
+  border-radius: var(--radius-pill);
+  font-size: 22rpx;
+}
+
+.check-badge--ok {
+  color: var(--ok);
+  background: var(--ok-soft);
+}
+
+.check-badge--todo {
+  color: var(--warn);
+  background: var(--warn-soft);
+}
+
+.check-badge--fail {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
+/* ---------- Actions ---------- */
+
+.actions {
+  display: flex;
+  margin: 24rpx 32rpx 0;
+}
+
+.btn {
+  flex: 1;
+  height: 88rpx;
+  line-height: 88rpx;
+  margin: 0;
+  padding: 0;
+  border-radius: 44rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.btn::after {
+  border: none;
+}
+
+.btn + .btn {
+  margin-left: 20rpx;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.btn-accent {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+
+.btn-ghost {
+  background: var(--surface);
+  color: var(--text-primary);
+  box-shadow: inset 0 0 0 2rpx var(--line);
+}
+
+.btn-hover {
+  opacity: 0.82;
+}
+
+/* ---------- Key-value ---------- */
+
+.kv-row {
+  display: flex;
+  align-items: flex-start;
+  padding: 18rpx 0;
+  border-top: 2rpx solid var(--line);
+}
+
+.kv-key {
+  flex-shrink: 0;
+  width: 176rpx;
+  font-size: 26rpx;
+  color: var(--text-secondary);
+}
+
+.kv-val {
+  flex: 1;
+  min-width: 0;
+  font-size: 26rpx;
+  color: var(--text-primary);
+  word-break: break-all;
+}
+
+/* ---------- Tips ---------- */
+
+.tips {
+  margin: 24rpx 32rpx 0;
+  padding: 28rpx 32rpx;
+  border-radius: var(--radius-card);
+  background: var(--accent-soft);
+}
+
+.tips-title {
+  display: block;
+  margin-bottom: 14rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--accent-text);
+}
+
+.tips-line {
+  display: block;
+  font-size: 24rpx;
+  line-height: 1.9;
+  color: var(--text-secondary);
+}
+
+/* ---------- 开奖数据 ---------- */
+
+.lottery-row {
+  display: flex;
+  align-items: center;
+  padding: 22rpx 0;
+  border-top: 2rpx solid var(--line);
+}
+
+.lottery-row:first-child {
+  padding-top: 12rpx;
+  border-top: none;
+}
+
+.lottery-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.lottery-name {
+  font-size: 30rpx;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.lottery-period {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}
+
+.lottery-badge {
+  flex-shrink: 0;
+  margin-left: 16rpx;
+  padding: 6rpx 18rpx;
+  border-radius: var(--radius-pill);
+  font-size: 22rpx;
+}
+
+.lottery-badge--ok {
+  color: var(--ok);
+  background: var(--ok-soft);
+}
+
+.lottery-badge--todo {
+  color: var(--warn);
+  background: var(--warn-soft);
+}
+
+.source-line {
+  margin-top: 16rpx;
+  padding: 18rpx 20rpx;
+  border-radius: 20rpx;
+  background: var(--bg);
+}
+
+.source-text {
+  font-size: 22rpx;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  word-break: break-all;
+}

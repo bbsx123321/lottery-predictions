@@ -1,0 +1,68 @@
+<view class="lpage" style="padding-bottom: {{bottomPad}}px">
+
+  <view class="ltabs">
+    <view
+      class="ltab {{item.active ? 'ltab--active' : ''}}"
+      wx:for="{{tabs}}"
+      wx:key="key"
+      data-key="{{item.key}}"
+      bindtap="onSwitchTab"
+    >{{item.name}}</view>
+  </view>
+
+  <!-- 模式 -->
+  <view class="lseg">
+    <view
+      class="lseg-item {{item.key === mode ? 'lseg-item--active' : ''}}"
+      wx:for="{{modeOptions}}"
+      wx:key="key"
+      data-mode="{{item.key}}"
+      bindtap="onSwitchMode"
+    >{{item.label}}</view>
+  </view>
+
+  <!-- 策略 -->
+  <view class="lseg">
+    <view
+      class="lseg-item {{item.key === strategy ? 'lseg-item--active' : ''}}"
+      wx:for="{{strategyOptions}}"
+      wx:key="key"
+      data-strategy="{{item.key}}"
+      bindtap="onSwitchStrategy"
+    >{{item.label}}</view>
+  </view>
+
+  <view class="lstate" wx:if="{{loading && !groups.length}}">正在计算…</view>
+  <view class="lstate lstate--error" wx:if="{{error}}">{{error}}</view>
+
+  <!-- 号码组 -->
+  <view class="lcard" wx:if="{{groups.length}}">
+    <view class="lcard-head">
+      <text class="lcard-title">{{mode === 'lucky' ? '幸运选号' : '模拟选号'}}</text>
+      <text class="lcard-meta">共 {{groups.length}} 组</text>
+    </view>
+
+    <view class="pgroup" wx:for="{{groups}}" wx:key="index">
+      <view class="pgroup-head">
+        <text class="pgroup-index">第 {{index + 1}} 组</text>
+        <text class="pgroup-shape">和值 {{item.shape.sum}} · 奇偶 {{item.shape.odd}}:{{item.shape.even}} · 跨度 {{item.shape.span}}</text>
+      </view>
+      <view class="lballs">
+        <text class="lball" wx:for="{{item.main}}" wx:for-item="b" wx:key="n">{{b.text}}</text>
+        <text class="lball lball--extra" wx:for="{{item.extra}}" wx:for-item="b" wx:key="n">{{b.text}}</text>
+      </view>
+    </view>
+
+    <view class="ltips">{{tips}}</view>
+    <view class="lsaved" wx:if="{{saved}}">✓ 已存入「我的 → 模拟选号记录」</view>
+  </view>
+
+  <!-- 操作 -->
+  <view class="lcard" wx:if="{{groups.length}}">
+    <view class="lbtns">
+      <button class="lbtn lbtn--ghost" bindtap="onCopy">复制号码</button>
+      <button class="lbtn" bindtap="onRegenerate">换一组</button>
+    </view>
+  </view>
+
+</view>

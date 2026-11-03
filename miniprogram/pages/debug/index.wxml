@@ -1,0 +1,62 @@
+<view class="page" style="padding-bottom: {{bottomPad}}px">
+  <view class="hero">
+    <text class="hero-title">环境自检</text>
+    <text class="hero-sub">彩票预测小程序 · 原生 + 微信云开发</text>
+    <view class="hero-pill hero-pill--{{headline.tone}}">
+      <text class="hero-pill-text">{{headline.text}}</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-head">
+      <text class="card-title">检查项</text>
+      <text class="card-meta">{{summary.ok}}/{{summary.total}} 通过</text>
+    </view>
+
+    <view class="check-row" wx:for="{{checks}}" wx:key="key">
+      <view class="check-dot check-dot--{{item.status}}"></view>
+      <view class="check-main">
+        <text class="check-label">{{item.label}}</text>
+        <text class="check-detail">{{item.detail}}</text>
+      </view>
+      <text class="check-badge check-badge--{{item.status}}">{{item.statusText}}</text>
+    </view>
+  </view>
+
+  <view class="actions">
+    <button class="btn btn-primary" bindtap="onRecheck" loading="{{loading}}" hover-class="btn-hover">重新检测</button>
+    <button class="btn btn-accent" bindtap="onSync" loading="{{syncing}}" hover-class="btn-hover">同步开奖</button>
+    <button class="btn btn-ghost" bindtap="onCopy" hover-class="btn-hover">复制诊断</button>
+  </view>
+
+  <view class="card">
+    <view class="card-head">
+      <text class="card-title">开奖数据</text>
+      <text class="card-meta">福彩官方 + 体彩官方</text>
+    </view>
+
+    <view class="lottery-row" wx:for="{{lotteries}}" wx:key="key">
+      <view class="lottery-main">
+        <text class="lottery-name">{{item.name}}</text>
+        <text class="lottery-period">{{item.latestPeriod ? item.latestPeriod + ' 期 · ' + item.latestDate : '尚未同步'}}</text>
+      </view>
+      <text class="lottery-badge {{item.ok ? 'lottery-badge--ok' : 'lottery-badge--todo'}}">{{item.ok ? '已存 ' + item.count + ' 期' : '待同步'}}</text>
+    </view>
+
+    <view class="source-line" wx:if="{{sourceText}}">
+      <text class="source-text">{{sourceText}}</text>
+    </view>
+
+    <view class="source-line" wx:if="{{autoText}}">
+      <text class="source-text">{{autoText}}</text>
+    </view>
+  </view>
+
+  <view class="tips">
+    <text class="tips-title">下一步</text>
+    <text class="tips-line">1. 首页与工具页已上线，业务页面调 utils/api.js 的方法</text>
+    <text class="tips-line">2. 定时触发器建议在控制台上传一次 config.json（兜底同步已上线）</text>
+    <text class="tips-line">3. 真机复验安全区与 env(safe-area-inset-bottom)</text>
+  </view>
+
+</view>

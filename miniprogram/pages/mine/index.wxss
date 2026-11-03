@@ -1,0 +1,392 @@
+/* 我的页 —— 底部 tab 的第三个入口 */
+
+.mpage {
+  padding: 24rpx 24rpx 0;
+}
+
+/* ---------- 卡片 ---------- */
+
+.mcard {
+  margin-bottom: 24rpx;
+  padding: 28rpx;
+  background: var(--surface);
+  border-radius: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(27, 30, 35, 0.04);
+}
+
+/* ---------- 未登录 ---------- */
+
+.mcard--login {
+  padding: 48rpx 40rpx 40rpx;
+  text-align: center;
+}
+
+/* 头像选择器：圆环用 view 画，button 只当透明热区。
+   踩过的坑：button 自带默认样式（display/line-height/::after）会把盒子撑变形 ——
+   直接把 button 当圆环用时，176rpx 的圆实测渲染成 184×91 的椭圆。 */
+.mavatar-ring {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 176rpx;
+  height: 176rpx;
+  margin: 0 auto 32rpx;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  overflow: hidden;
+}
+
+/* 虚线环画在 ::before 上，这样内容区不会被 border 挤小 */
+.mavatar-ring::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 4rpx dashed var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* 已登录态的小头像 */
+.mavatar-ring--sm {
+  flex: 0 0 auto;
+  width: 112rpx;
+  height: 112rpx;
+  margin: 0;
+  background: transparent;
+  /* button 的固有宽度比圆环大，裁掉多余的热区，
+     免得点空白处也拉起选图器 */
+  overflow: hidden;
+}
+
+.mavatar-ring--sm::before {
+  display: none;
+}
+
+.mavatar-ring--busy {
+  opacity: 0.6;
+}
+
+/* 透明热区：open-type="chooseAvatar" 只能挂在 button 上，
+   所以按钮保留，但所有视觉都交给上面的圆环。
+   坑：button 自带约 184px 的最小宽度，不写死宽高它会比圆环还宽。 */
+.mavatar-pick,
+.mavatar-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: transparent;
+  font-size: 0;
+  line-height: normal;
+}
+
+.mavatar-pick {
+  width: 176rpx;
+  height: 176rpx;
+}
+
+.mavatar-btn {
+  width: 112rpx;
+  height: 112rpx;
+}
+
+.mavatar-pick::after,
+.mavatar-btn::after {
+  border: none;
+}
+
+.mavatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.mavatar-ph {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  line-height: normal;
+  color: var(--accent-deep);
+}
+
+.mavatar-ph-icon {
+  font-size: 56rpx;
+  line-height: 1;
+  font-weight: 300;
+}
+
+.mavatar-ph-text {
+  margin-top: 6rpx;
+  font-size: 22rpx;
+}
+
+/* 昵称输入行 */
+.mfield {
+  display: flex;
+  align-items: center;
+  margin-top: 36rpx;
+  padding: 0 24rpx;
+  height: 88rpx;
+  border-radius: 44rpx;
+  background: var(--bg);
+  text-align: left;
+}
+
+.mfield-label {
+  font-size: 26rpx;
+  color: var(--text-muted);
+}
+
+.mfield-input {
+  flex: 1;
+  min-width: 0;
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  color: var(--text-primary);
+}
+
+.mlogin-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.mlogin-desc {
+  margin-top: 16rpx;
+  font-size: 24rpx;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.mlogin-btn {
+  margin-top: 40rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--accent);
+}
+
+.mlogin-tip {
+  margin-top: 24rpx;
+  font-size: 21rpx;
+  color: var(--text-muted);
+}
+
+/* ---------- 已登录：用户卡 ---------- */
+
+.mrow {
+  display: flex;
+  align-items: center;
+}
+
+/* 头像：外面套一个 .mavatar-ring 定位，按钮只是透明热区 */
+.mavatar {
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent-deep);
+  font-size: 40rpx;
+  font-weight: 600;
+  text-align: center;
+  line-height: 112rpx;
+}
+
+.minfo {
+  flex: 1;
+  min-width: 0;
+  margin-left: 24rpx;
+}
+
+.mnick {
+  height: 48rpx;
+  font-size: 34rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.mnick-ph {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.mmeta {
+  font-size: 22rpx;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.maction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+  border-top: 1px solid var(--line);
+}
+
+.mhint {
+  font-size: 21rpx;
+  color: var(--text-muted);
+}
+
+.mlogout {
+  font-size: 24rpx;
+  color: var(--text-muted);
+}
+
+/* ---------- AI 设置入口 ---------- */
+
+.msetting {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+  border-radius: 20rpx;
+  background: var(--row-tint);
+}
+
+.msetting-icon {
+  flex: 0 0 auto;
+  width: 72rpx;
+  height: 72rpx;
+  margin-right: 20rpx;
+  border-radius: 20rpx;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 26rpx;
+  font-weight: 700;
+  text-align: center;
+  line-height: 72rpx;
+}
+
+.msetting-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.msetting-title {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.msetting-desc {
+  display: block;
+  margin-top: 6rpx;
+  font-size: 22rpx;
+  color: var(--text-muted);
+}
+
+.msetting-arrow {
+  flex: 0 0 auto;
+  margin-left: 16rpx;
+  font-size: 34rpx;
+  color: var(--text-muted);
+}
+
+/* ---------- 记录 ---------- */
+
+.mempty {
+  padding: 40rpx 8rpx 24rpx;
+  font-size: 24rpx;
+  line-height: 1.6;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.mrec {
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+  border-top: 1px solid var(--line);
+}
+
+.mrec-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mrec-title {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.mrec-lottery {
+  font-size: 27rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.mrec-mode,
+.mrec-strategy {
+  margin-left: 12rpx;
+  padding: 2rpx 12rpx;
+  border-radius: 8rpx;
+  font-size: 20rpx;
+  color: var(--accent-deep);
+  background: var(--accent-soft);
+}
+
+.mrec-strategy {
+  color: var(--text-secondary);
+  background: var(--bg);
+}
+
+.mrec-time {
+  margin-left: 16rpx;
+  font-size: 21rpx;
+  color: var(--text-muted);
+}
+
+.mrec-group {
+  margin-top: 16rpx;
+}
+
+.mrec-group-label {
+  font-size: 22rpx;
+  color: var(--text-muted);
+  margin-bottom: 8rpx;
+}
+
+.mrec-balls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.mball {
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 20rpx;
+  font-weight: 600;
+  line-height: 44rpx;
+  text-align: center;
+}
+
+.mball--extra {
+  background: var(--blue);
+}

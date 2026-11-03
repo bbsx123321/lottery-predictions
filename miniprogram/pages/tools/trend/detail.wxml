@@ -1,0 +1,161 @@
+<view class="tdetail">
+
+  <!-- 顶部说明 -->
+  <view class="thead-note">注：开奖结果来源于网络，仅供参考不作为兑奖依据</view>
+
+  <view class="tstate" wx:if="{{loading && !table.rows.length}}">正在加载开奖数据…</view>
+  <view class="tstate tstate--error" wx:if="{{error}}">{{error}}</view>
+  <view class="tstate" wx:if="{{!loading && !error && !table.rows.length}}">
+    暂无该算法的走势数据
+  </view>
+
+  <!-- 表格 -->
+  <scroll-view
+    class="tscroll"
+    scroll-x="{{true}}"
+    scroll-y="{{true}}"
+    style="height: {{viewHeight}}px"
+  >
+    <view class="ttable" style="width: {{tableWidth}}px">
+
+      <!-- 行底色（单独一层，方便画线压在中间） -->
+      <view class="tstripes" style="top: {{headH}}px">
+        <view
+          class="tstripe {{index % 2 ? 'tstripe--tint' : ''}}"
+          wx:for="{{table.rows}}"
+          wx:key="period"
+        ></view>
+      </view>
+
+      <!-- 画线层：每段线一个绝对定位的细条 + rotate -->
+      <view class="tlines" wx:if="{{lineOn}}" style="top: {{headH}}px">
+        <view
+          class="tline-seg {{item.hot ? '' : 'tline-seg--cold'}}"
+          wx:for="{{lines}}"
+          wx:key="id"
+          style="left: {{item.x}}px; top: {{item.y}}px; width: {{item.w}}px; transform: rotate({{item.angle}}deg);"
+        ></view>
+      </view>
+
+      <!-- 表头第一行：分区 -->
+      <view class="trow trow--head trow--group">
+        <view class="tc tc--fix tc--period" bindtap="onSort">
+          期次<text class="tsort">{{desc ? '▼' : '▲'}}</text>
+        </view>
+        <view class="tc tc--fix tc--week">星期</view>
+        <view
+          class="tgroup"
+          wx:for="{{table.groups}}"
+          wx:key="label"
+          style="width: {{item.width}}px"
+        >{{item.label}}</view>
+      </view>
+
+      <!-- 表头第二行：列标题 -->
+      <view class="trow trow--head">
+        <view class="tc tc--fix tc--period"></view>
+        <view class="tc tc--fix tc--week"></view>
+        <view
+          class="tc tc--col {{c.kind}} {{c.hot ? 'tc--hot' : ''}}"
+          wx:for="{{table.columns}}"
+          wx:for-item="c"
+          wx:key="index"
+          style="width: {{c.width}}px"
+        >{{c.label}}</view>
+      </view>
+
+      <!-- 数据行 -->
+      <view
+        class="trow"
+        wx:for="{{table.rows}}"
+        wx:for-item="r"
+        wx:for-index="ri"
+        wx:key="period"
+      >
+        <view class="tc tc--fix tc--period">{{r.period}}</view>
+        <view class="tc tc--fix tc--week">{{r.weekday}}</view>
+        <view
+          class="tc {{c.kind}} {{c.hit ? 'tc--hit' : ''}} {{c.tone === 'strong' ? 'tc--strong' : ''}} {{c.hot ? 'tc--warm' : ''}}"
+          wx:for="{{r.cells}}"
+          wx:for-item="c"
+          wx:for-index="ci"
+          wx:key="index"
+          style="width: {{c.width}}px"
+          data-ri="{{ri}}"
+          data-ci="{{ci}}"
+          bindtap="onCellTap"
+        >{{c.text}}</view>
+      </view>
+
+    </view>
+  </scroll-view>
+
+  <!-- 底部工具条 -->
+  <view class="tbar" style="padding-bottom: {{bottomPad}}px">
+    <view class="tbar-item" bindtap="onTogglePeriods">
+      {{periods}}期<text class="tbar-arrow">▾</text>
+    </view>
+    <view class="tbar-sep"></view>
+    <view class="tbar-item {{lineOn ? 'tbar-item--on' : ''}}" bindtap="onToggleLine">
+      {{lineOn ? '关闭画线' : '开启画线'}}
+    </view>
+    <view class="tbar-sep"></view>
+    <view class="tbar-item" bindtap="onTogglePick">选号单({{pick.length}})</view>
+    <view class="tbar-sep"></view>
+    <view class="tbar-item" bindtap="onToggleFav">精选优选</view>
+  </view>
+
+  <!-- 弹层：期数 -->
+  <view class="tpanel" wx:if="{{showPeriods}}">
+    <view class="tpanel-title">显示期数</view>
+    <view class="tpanel-opts">
+      <view
+        class="tpanel-opt {{periods === n ? 'tpanel-opt--on' : ''}}"
+        wx:for="{{periodOptions}}"
+        wx:for-item="n"
+        wx:key="*this"
+        data-n="{{n}}"
+        bindtap="onPickPeriod"
+      >{{n}} 期</view>
+    </view>
+    <view class="tpanel-close" bindtap="onClosePanel">关闭</view>
+  </view>
+
+  <!-- 弹层：选号单 -->
+  <view class="tpanel" wx:if="{{showPick}}">
+    <view class="tpanel-title">选号单（{{pick.length}}）</view>
+    <view class="tpanel-empty" wx:if="{{!pick.length}}">
+      点表格里带红圈的号码就能加进来
+    </view>
+    <view class="tpanel-list" wx:else>
+      <view class="tpanel-item" wx:for="{{pick}}" wx:key="key">
+        <text class="tpanel-item-period">{{item.period}}</text>
+        <text class="tpanel-item-num">{{item.text}}</text>
+      </view>
+    </view>
+    <view class="tpanel-close" wx:if="{{pick.length}}" bindtap="onClearPick">清空</view>
+    <view class="tpanel-close" bindtap="onClosePanel">关闭</view>
+  </view>
+
+  <!-- 弹层：精选优选 -->
+  <view class="tpanel" wx:if="{{showFav}}">
+    <view class="tpanel-title">精选优选</view>
+    <block wx:if="{{fav}}">
+      <view class="tfav-block">
+        <view class="tfav-label">热号（出现次数最多）</view>
+        <view class="tfav-nums">
+          <text class="tfav-num" wx:for="{{fav.hot}}" wx:key="n">{{item.label}}<text class="tfav-cnt">{{item.count}}</text></text>
+        </view>
+      </view>
+      <view class="tfav-block">
+        <view class="tfav-label">回补号（遗漏最久）</view>
+        <view class="tfav-nums">
+          <text class="tfav-num tfav-num--blue" wx:for="{{fav.cold}}" wx:key="n">{{item.label}}<text class="tfav-cnt">{{item.omit}}</text></text>
+        </view>
+      </view>
+      <view class="tfav-tip">{{fav.tip}}</view>
+    </block>
+    <view class="tpanel-close" bindtap="onClosePanel">关闭</view>
+  </view>
+
+</view>

@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/draws/index",
+    "pages/mine/index",
+    "pages/tools/trend/index",
+    "pages/tools/trend/detail",
+    "pages/tools/history/index",
+    "pages/tools/pick/index",
+    "pages/tools/analysis/index",
+    "pages/tools/ai-settings/index",
+    "pages/tools/ai-analysis/index",
+    "pages/debug/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "彩票预测",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f4f5f8"
+  },
+  "tabBar": {
+    "color": "#9aa3ae",
+    "selectedColor": "#e8483f",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/tab-home.png",
+        "selectedIconPath": "assets/tab-home-on.png"
+      },
+      {
+        "pagePath": "pages/draws/index",
+        "text": "开奖",
+        "iconPath": "assets/tab-draw.png",
+        "selectedIconPath": "assets/tab-draw-on.png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "assets/tab-mine.png",
+        "selectedIconPath": "assets/tab-mine-on.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

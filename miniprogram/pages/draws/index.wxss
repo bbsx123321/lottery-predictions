@@ -1,0 +1,94 @@
+/* 开奖页 —— 底部 tab 的第二个入口 */
+
+.dpage {
+  padding: 24rpx 24rpx 0;
+}
+
+/* ---------- 开奖记录卡 ---------- */
+
+.dcard {
+  margin-bottom: 20rpx;
+  padding: 24rpx;
+  background: var(--surface);
+  border-radius: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(27, 30, 35, 0.04);
+}
+
+.dhead {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 18rpx;
+}
+
+.dperiod {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.ddate {
+  margin-left: 16rpx;
+  font-size: 22rpx;
+  color: var(--text-muted);
+}
+
+/* ---------- 号码球 ---------- */
+
+.dballs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.dball {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 24rpx;
+  font-weight: 600;
+  line-height: 56rpx;
+  text-align: center;
+}
+
+.dball--extra {
+  background: var(--blue);
+}
+
+/* ---------- 底部信息 ---------- */
+
+.dfoot {
+  display: flex;
+  align-items: center;
+  margin-top: 18rpx;
+  padding-top: 16rpx;
+  border-top: 1px solid var(--line);
+}
+
+.dmeta {
+  font-size: 21rpx;
+  color: var(--text-muted);
+}
+
+.dmeta + .dmeta {
+  margin-left: 32rpx;
+}
+
+/* ---------- 加载更多 ---------- */
+
+.dmore {
+  margin: 8rpx 0 24rpx;
+  padding: 22rpx;
+  text-align: center;
+  font-size: 25rpx;
+  color: var(--accent);
+  background: var(--surface);
+  border-radius: 20rpx;
+}
+
+.dmore--end {
+  color: var(--text-muted);
+  background: transparent;
+}

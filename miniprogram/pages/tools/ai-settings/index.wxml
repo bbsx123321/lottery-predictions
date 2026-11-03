@@ -1,0 +1,195 @@
+<view class="lpage aipage">
+
+  <!-- 状态 -->
+  <view class="lcard">
+    <view class="lcard-head">
+      <text class="lcard-title">AI 状态</text>
+      <text class="lcard-meta">{{hasKey ? '已配置' : '未配置'}}</text>
+    </view>
+    <view class="astate">
+      <view class="astate-dot {{hasKey ? 'astate-dot--on' : ''}}"></view>
+      <text class="astate-text">
+        {{hasKey ? '已就绪 · ' + configName + ' · ' + model : '当前「' + configName + '」还没配置密钥，点下面的「拉取预置配置」或自己填一把'}}
+      </text>
+    </view>
+    <view class="anote">
+      模型调用走<text class="anote-em">客户端直连</text>，
+      不经过云函数 —— 云函数 api 的超时只有 3 秒，而一次模型调用要 3~30 秒，必然超时。
+    </view>
+  </view>
+
+  <!-- 模型配置（最多 3 套） -->
+  <view class="lcard">
+    <view class="lcard-head">
+      <text class="lcard-title">模型配置</text>
+      <text class="lcard-meta">{{configs.length}} / 3 套</text>
+    </view>
+
+    <view class="acfg-list">
+      <view
+        class="acfg acfg-item {{item.active ? 'acfg--active' : ''}}"
+        wx:for="{{configs}}"
+        wx:key="id"
+        data-id="{{item.id}}"
+        bindtap="onSwitchConfig"
+      >
+        <view class="acfg-top">
+          <text class="acfg-name">{{item.name}}</text>
+          <view class="acfg-dot {{item.hasKey ? 'acfg-dot--on' : ''}}"></view>
+        </view>
+        <text class="acfg-model">{{item.shortModel}}</text>
+      </view>
+
+      <view class="acfg acfg--add" wx:if="{{canAdd}}" bindtap="onAddConfig">
+        <text class="acfg-plus">＋</text>
+        <text class="acfg-model">新增</text>
+      </view>
+    </view>
+
+    <view class="ahint">
+      点卡片切换当前使用的配置，下面「模型与密钥」编辑的就是它。最多 3 套。
+    </view>
+
+    <button class="lbtn lbtn--ghost abtn abtn--gap" wx:if="{{configs.length}}" bindtap="onDeleteConfig">
+      删除当前配置
+    </button>
+  </view>
+
+  <!-- 去 AI 分析 -->
+  <view class="lcard">
+    <view class="lcard-head">
+      <text class="lcard-title">去用起来</text>
+      <text class="lcard-meta">AI 分析</text>
+    </view>
+    <view class="anote">
+      配好之后去「AI 分析」——选个彩种和统计期数，
+      前端把频次 / 遗漏 / 和值 / 奇偶比等指标算好，模型负责解读。
+    </view>
+    <button class="lbtn lbtn--ghost abtn" bindtap="goAIAnalysis">打开 AI 分析</button>
+  </view>
+
+  <!-- 预置配置 -->
+  <view class="lcard">
+    <view class="lcard-head">
+      <text class="lcard-title">服务端预置</text>
+      <text class="lcard-meta">推荐先用这个</text>
+    </view>
+    <view class="anote">
+      预置密钥放在云函数里，不打进小程序代码包（代码包是明文分发的，
+      写进去会被反编译拿到）。拉取后只存在本机。
+    </view>
+    <button class="lbtn lbtn--ghost abtn apreset" bindtap="fetchPreset" loading="{{loading}}" disabled="{{loading}}">
+      {{loading ? '拉取中…' : '拉取预置配置'}}
+    </button>
+  </view>
+
+  <!-- 模型与密钥 -->
+  <view class="lcard">
+    <view class="lcard-head">
+      <text class="lcard-title">模型与密钥</text>
+      <text class="lcard-meta" wx:if="{{activeId}}">第 {{activeIndex + 1}} 套</text>
+    </view>
+
+    <view class="afield">
+      <text class="afield-label">配置名称</text>
+      <input
+        class="afield-input"
+        value="{{configName}}"
+        placeholder="给这套起个名字，比如「快的」「深度」「我的 Key」"
+        placeholder-class="aph"
+        bindinput="onNameInput"
+      />
+    </view>
+
+    <view class="afield">
+      <text class="afield-label">接口地址</text>
+      <input
+        class="afield-input"
+        value="{{baseUrl}}"
+        placeholder="https://api.minimaxi.com/anthropic/v1"
+        placeholder-class="aph"
+        bindinput="onBaseUrlInput"
+      />
+    </view>
+
+    <view class="afield">
+      <text class="afield-label">模型</text>
+      <picker mode="selector" range="{{modelNames}}" value="{{modelIndex}}" bindchange="onModelChange">
+        <view class="afield-picker">{{modelNames[modelIndex] || model}}</view>
+      </picker>
+    </view>
+
+    <view class="afield">
+      <text class="afield-label">API Key</text>
+      <view class="afield-key">
+        <input
+          class="afield-input afield-input--key"
+          password="{{!showKey}}"
+          value="{{apiKey}}"
+          placeholder="sk-…"
+          placeholder-class="aph"
+          bindinput="onKeyInput"
+        />
+        <text class="afield-eye" bindtap="toggleKey">{{showKey ? '隐藏' : '显示'}}</text>
+      </view>
+    </view>
+
+    <view class="afield">
+      <text class="afield-label">温度</text>
+      <view class="atemp">
+        <slider
+          class="atemp-slider"
+          min="0"
+          max="1"
+          step="0.1"
+          value="{{temperature}}"
+          activeColor="#e8483f"
+          backgroundColor="#eef0f3"
+          block-size="20"
+          bindchange="onTempChange"
+        />
+        <text class="atemp-val">{{temperature}}</text>
+      </view>
+    </view>
+
+    <view class="afield">
+      <text class="afield-label">分析风格</text>
+      <picker mode="selector" range="{{styleNames}}" value="{{styleIndex}}" bindchange="onStyleChange">
+        <view class="afield-picker">{{styleNames[styleIndex] || '数据派'}}</view>
+      </picker>
+      <view class="ahint">给「AI 分析」预留的风格预设，会写进模型的 system 提示词</view>
+    </view>
+  </view>
+
+  <!-- 连接测试 -->
+  <view class="lcard">
+    <view class="lcard-head">
+      <text class="lcard-title">连接测试</text>
+      <text class="lcard-meta">真实发一次请求</text>
+    </view>
+
+    <button class="lbtn abtn" bindtap="testConnection" loading="{{testing}}" disabled="{{testing}}">
+      {{testing ? '模型思考中…' : '测试连接'}}
+    </button>
+
+    <view class="lstate lstate--error" wx:if="{{error}}">{{error}}</view>
+
+    <view class="aresult" wx:if="{{result}}">
+      <text class="aresult-label">模型回复</text>
+      <text class="aresult-text">{{result}}</text>
+      <text class="aresult-meta" wx:if="{{resultMeta}}">{{resultMeta}}</text>
+    </view>
+  </view>
+
+  <!-- 保存 -->
+  <view class="lcard">
+    <button class="lbtn abtn" bindtap="onSave">保存设置</button>
+    <button class="lbtn lbtn--ghost abtn abtn--gap" bindtap="onClear">清除本机全部配置</button>
+    <view class="anote anote--foot">
+      配置只存在这台设备上，不上传云端。
+      真机使用需要在 MP 后台「开发管理 → 服务器域名」把
+      <text class="anote-em">api.minimaxi.com</text> 加进 request 合法域名。
+    </view>
+  </view>
+
+</view>

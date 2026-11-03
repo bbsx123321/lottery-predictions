@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "openapi": []
+  },
+  "triggers": [
+    {
+      "name": "syncDrawsDaily",
+      "type": "timer",
+      "config": "0 0 22 * * * *",
+      "enable": true
+    }
+  ]
+}

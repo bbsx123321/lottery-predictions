@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<title>AI 分析图标候选</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f4f5f8;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    padding: 24px 16px 40px;
+  }
+  .sheet { width: 375px; margin: 0 auto; }
+  h1 { font-size: 20px; color: #1b1e23; margin-bottom: 4px; }
+  .sub { font-size: 12px; color: #9aa3ae; margin-bottom: 20px; }
+  .row {
+    background: #fff;
+    border-radius: 16px;
+    padding: 16px 12px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 2px rgba(27,30,35,.05);
+  }
+  .row-head {
+    display: flex; align-items: baseline; gap: 8px;
+    padding: 0 4px 12px;
+  }
+  .tag {
+    font-size: 13px; font-weight: 600; color: #1b1e23;
+  }
+  .desc { font-size: 11px; color: #9aa3ae; }
+  .tools {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 16px;
+  }
+  .tool { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .icon {
+    width: 36px; height: 36px; border-radius: 12px;
+    background-repeat: no-repeat; background-position: center;
+    background-size: 18px 18px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .icon svg { width: 18px; height: 18px; display: block; }
+  .label { font-size: 11px; color: #5a6270; text-align: center; line-height: 1.3; }
+  .new { color: #e8483f; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <h1>AI 分析图标 · 候选</h1>
+  <div class="sub">前 7 个是现有的工具图标（不动），最后一个是新方案。都是在真实工具箱里的样子。</div>
+  <div id="out"></div>
+</div>
+
+<script>
+const STROKE = "stroke='%23fff'";
+
+const EXISTING = [
+  { label: "走势图", bg: "#fdeeec", d: "<polyline points='22 7 13.5 15.5 8.5 10.5 2 17'/><polyline points='16 7 22 7 22 13'/>" },
+  { label: "模拟选号", bg: "#fdf1e2", d: "<path d='m18 14 4 4-4 4'/><path d='m18 2 4 4-4 4'/><path d='M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-8.6a4 4 0 0 1 3.3-1.7H22'/><path d='M2 6h1.972a4 4 0 0 1 3.6 1.8'/><path d='m7 15 5 5'/>" },
+  { label: "往期开奖", bg: "#eaf0fd", d: "<path d='M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8'/><path d='M3 3v5h5'/><path d='M12 7v5l4 2'/>" },
+  { label: "吉号分析", bg: "#e7f5ed", d: "<circle cx='12' cy='7' r='3.4'/><circle cx='12' cy='17' r='3.4'/><circle cx='7' cy='12' r='3.4'/><circle cx='17' cy='12' r='3.4'/>" },
+  { label: "智能规律", bg: "#f1ecfd", d: "<path d='m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z'/><path d='M5 3v4M3 5h4M19 17v4M17 19h4'/>" },
+  { label: "选号分布", bg: "#e2f4f4", d: "<path d='M21.21 15.89A10 10 0 1 1 8 2.83'/><path d='M22 12A10 10 0 0 0 12 2v10z'/>" },
+  { label: "幸运选号", bg: "#fdeaf2", d: "<rect x='3' y='8' width='18' height='4' rx='1'/><path d='M12 8v13'/><path d='M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7'/><path d='M7.5 8a2.5 2.5 0 0 1 0-5A4.8 4.8 0 0 1 12 8a4.8 4.8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5'/>" },
+];
+
+const CANDIDATES = [
+  {
+    tag: "A",
+    desc: "实心星芒 · 靛蓝渐变底",
+    bg: "linear-gradient(135deg,#6366f1,#4338ca)",
+    svg: `<svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2.6l1.9 5.6 5.6 1.9-5.6 1.9L12 17.6l-1.9-5.6L4.5 10.1l5.6-1.9z"/><path d="M18.6 16.2l.8 2.3 2.3.8-2.3.8-.8 2.3-.8-2.3-2.3-.8 2.3-.8z"/></svg>`,
+  },
+  {
+    tag: "B",
+    desc: "机器人头 · 深蓝实心底（现状的字形，但换个底色）",
+    bg: "linear-gradient(135deg,#4f46e5,#3730a3)",
+    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2M9 17h6"/></svg>`,
+  },
+  {
+    tag: "C",
+    desc: "灯泡 · 深蓝实心底（代表「看出洞察」）",
+    bg: "linear-gradient(135deg,#4f46e5,#3730a3)",
+    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>`,
+  },
+  {
+    tag: "D",
+    desc: "魔杖 · 紫色实心底（「AI 魔法」）",
+    bg: "linear-gradient(135deg,#7c3aed,#5b21b6)",
+    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5 4 4"/><path d="M13 6 5.6 13.4a2 2 0 0 0-.6.9l-.8 2.7a.5.5 0 0 0 .6.6l2.7-.8a2 2 0 0 0 .9-.6L14 10"/><path d="m9 10-4 4"/><circle cx="20.5" cy="7" r="1"/><path d="M4 3h2M3 5v2"/></svg>`,
+  },
+  {
+    tag: "E",
+    desc: "芯片 · 深蓝实心底（「AI 芯片」）",
+    bg: "linear-gradient(135deg,#4f46e5,#3730a3)",
+    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 4"/></svg>`,
+  },
+];
+
+function iconHtml(d) {
+  return `<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
+}
+
+function existingCell(t) {
+  const color = {
+    "#fdeeec": "#e8483f", "#fdf1e2": "#e08423", "#eaf0fd": "#2f6ae0",
+    "#e7f5ed": "#2f9e63", "#f1ecfd": "#7a5af0", "#e2f4f4": "#1e9aa0", "#fdeaf2": "#e0558f"
+  }[t.bg];
+  return `<div class="tool"><div class="icon" style="background-color:${t.bg}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${t.d}</svg>
+    </div><div class="label">${t.label}</div></div>`;
+}
+
+const out = document.getElementById("out");
+for (const c of CANDIDATES) {
+  const row = document.createElement("div");
+  row.className = "row";
+  row.innerHTML =
+    `<div class="row-head"><span class="tag">方案 ${c.tag}</span><span class="desc">${c.desc}</span></div>` +
+    `<div class="tools">` +
+    EXISTING.map(existingCell).join("") +
+    `<div class="tool"><div class="icon" style="background:${c.bg}">${c.svg}</div><div class="label new">AI 分析</div></div>` +
+    `</div>`;
+  out.appendChild(row);
+}
+</script>
+</body>
+</html>

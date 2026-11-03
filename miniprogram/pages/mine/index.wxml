@@ -1,0 +1,141 @@
+<view class="lpage mpage" style="padding-bottom: {{bottomPad}}px">
+
+  <!-- 未登录：授权卡片 -->
+  <view class="mcard mcard--login" wx:if="{{!logged}}">
+    <!-- 头像选择器：平台规定只能用 open-type="chooseAvatar" 的 button。
+         圆环用 view 画，button 只当透明热区盖在上面 ——
+         button 自带的默认样式会把盒子撑变形（实测 176rpx 的圆被撑成 184×91 的椭圆） -->
+    <view class="mavatar-ring {{uploading ? 'mavatar-ring--busy' : ''}}">
+      <image
+        class="mavatar-img"
+        wx:if="{{avatarDraft}}"
+        src="{{avatarDraft}}"
+        mode="aspectFill"
+      />
+      <view class="mavatar-ph" wx:else>
+        <text class="mavatar-ph-icon">+</text>
+        <text class="mavatar-ph-text">选头像</text>
+      </view>
+      <button
+        class="mavatar-pick"
+        open-type="chooseAvatar"
+        bindchooseavatar="onChooseAvatar"
+      ></button>
+    </view>
+
+    <view class="mlogin-title">授权登录，保存你的头像和昵称</view>
+    <view class="mlogin-desc">
+      点上方圆形按钮选择你自己的微信头像，昵称也会一并存下来。
+      授权后这里会显示你在「幸运选号 / 模拟选号」里生成过的号码组，换设备也能看到。
+    </view>
+
+    <!-- 昵称：type="nickname" 会调起微信的昵称面板 -->
+    <view class="mfield">
+      <text class="mfield-label">昵称</text>
+      <input
+        class="mfield-input"
+        type="nickname"
+        value="{{nicknameDraft}}"
+        placeholder="点这里填写昵称"
+        placeholder-class="mnick-ph"
+        bindinput="onNicknameInput"
+        bindblur="onNickname"
+        bindconfirm="onNickname"
+      />
+    </view>
+
+    <view class="mlogin-btn" bindtap="onLogin">
+      {{logging ? '登录中…' : (avatarDraft ? '完成授权' : '微信授权登录')}}
+    </view>
+    <view class="mlogin-tip">仅用于识别你的记录，不收集手机号等任何个人信息</view>
+  </view>
+
+  <!-- 已登录 -->
+  <block wx:else>
+    <view class="mcard">
+      <view class="mrow">
+        <view class="mavatar-ring mavatar-ring--sm">
+          <image class="mavatar" wx:if="{{profile.avatar}}" src="{{profile.avatar}}" mode="aspectFill" />
+          <view class="mavatar mavatar--empty" wx:else>{{profileInitial}}</view>
+          <button
+            class="mavatar-btn"
+            open-type="chooseAvatar"
+            bindchooseavatar="onChooseAvatar"
+          ></button>
+        </view>
+
+        <view class="minfo">
+          <input
+            class="mnick"
+            type="nickname"
+            value="{{nicknameDraft}}"
+            placeholder="点击填写昵称"
+            placeholder-class="mnick-ph"
+            bindinput="onNicknameInput"
+            bindblur="onNickname"
+            bindconfirm="onNickname"
+          />
+          <view class="mmeta">{{profile.maskedOpenid}}</view>
+          <view class="mmeta">已登录 {{profile.loginCount}} 次</view>
+        </view>
+      </view>
+
+      <view class="maction">
+        <text class="mhint">点头像可更换，点头像右侧可改昵称</text>
+        <view class="mlogout" bindtap="onLogout">退出登录</view>
+      </view>
+    </view>
+
+    <!-- AI 设置入口 -->
+    <view class="mcard">
+      <view class="lcard-head">
+        <text class="lcard-title">AI 设置</text>
+        <text class="lcard-meta">模型与密钥</text>
+      </view>
+      <view class="msetting" bindtap="goAISettings">
+        <view class="msetting-icon">AI</view>
+        <view class="msetting-info">
+          <text class="msetting-title">配置 AI 模型</text>
+          <text class="msetting-desc">{{aiStatusText}}</text>
+        </view>
+        <text class="msetting-arrow">›</text>
+      </view>
+    </view>
+
+    <!-- 模拟选号记录 -->
+    <view class="mcard">
+      <view class="lcard-head">
+        <text class="lcard-title">我的模拟选号记录</text>
+        <text class="lcard-meta">{{records.length}} 条</text>
+      </view>
+
+      <view class="lstate" wx:if="{{loading && !records.length}}">正在加载记录…</view>
+      <view class="lstate lstate--error" wx:if="{{error}}">{{error}}</view>
+
+      <view class="mempty" wx:if="{{!loading && !records.length && !error}}">
+        还没有记录。去「首页 → 工具箱 → 幸运选号」生成一组，
+        这里就会自动存下来。
+      </view>
+
+      <view class="mrec" wx:for="{{records}}" wx:key="id">
+        <view class="mrec-head">
+          <view class="mrec-title">
+            <text class="mrec-lottery">{{item.lotteryName}}</text>
+            <text class="mrec-mode">{{item.modeName}}</text>
+            <text class="mrec-strategy">{{item.strategyName}}</text>
+          </view>
+          <text class="mrec-time">{{item.timeText}}</text>
+        </view>
+
+        <view class="mrec-group" wx:for="{{item.groups}}" wx:for-item="g" wx:key="label">
+          <view class="mrec-group-label">{{g.label}}</view>
+          <view class="mrec-balls">
+            <text class="mball" wx:for="{{g.main}}" wx:for-item="n" wx:key="*this">{{n}}</text>
+            <text class="mball mball--extra" wx:for="{{g.extra}}" wx:for-item="n" wx:key="*this">{{n}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+</view>

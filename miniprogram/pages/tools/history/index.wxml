@@ -1,0 +1,46 @@
+<view class="lpage" style="padding-bottom: {{bottomPad}}px">
+
+  <view class="ltabs">
+    <view
+      class="ltab {{item.active ? 'ltab--active' : ''}}"
+      wx:for="{{tabs}}"
+      wx:key="key"
+      data-key="{{item.key}}"
+      bindtap="onSwitchTab"
+    >{{item.name}}</view>
+  </view>
+
+  <view class="lstate" wx:if="{{loading && !list.length}}">正在加载开奖记录…</view>
+  <view class="lstate lstate--error" wx:if="{{error}}">{{error}}</view>
+
+  <view class="lcard" wx:if="{{list.length}}">
+    <view class="lcard-head">
+      <text class="lcard-title">往期开奖</text>
+      <text class="lcard-meta">共 {{total}} 期</text>
+    </view>
+
+    <view class="lthead">
+      <text class="lth-col lth-period">期号</text>
+      <text class="lth-col lth-date">开奖日期</text>
+      <text class="lth-col lth-nums">{{mainLabel}}</text>
+      <text class="lth-col lth-extra" wx:if="{{hasExtra}}">{{extraLabel}}</text>
+      <text class="lth-col lth-pool">奖池</text>
+    </view>
+
+    <view class="ltrow {{index % 2 === 0 ? 'ltrow--tint' : ''}}" wx:for="{{list}}" wx:key="period">
+      <text class="lth-col lth-period ltperiod">{{item.period}}</text>
+      <text class="lth-col lth-date ltdate">{{item.shortDate}}</text>
+      <text class="lth-col lth-nums ltnums">{{item.mainText}}</text>
+      <text class="lth-col lth-extra ltextra" wx:if="{{hasExtra}}">{{item.extraText}}</text>
+      <text class="lth-col lth-pool ltpool">{{item.pool}}</text>
+    </view>
+
+    <view class="lmore" wx:if="{{hasMore}}" bindtap="onLoadMore">
+      <text class="lmore-text">{{loadingMore ? '加载中…' : '加载更多'}}</text>
+    </view>
+    <view class="lmore" wx:else>
+      <text class="lmore-text lmore-text--end">已经到底了</text>
+    </view>
+  </view>
+
+</view>

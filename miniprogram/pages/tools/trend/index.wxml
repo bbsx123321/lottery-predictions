@@ -1,0 +1,42 @@
+<view class="lpage tmenu" style="padding-bottom: {{bottomPad}}px">
+
+  <!-- 全国 / 地方 -->
+  <view class="tseg-big">
+    <view
+      class="tseg-big-item {{scope === 'national' ? 'tseg-big-item--on' : ''}}"
+      data-scope="national"
+      bindtap="onScope"
+    >全国</view>
+    <view
+      class="tseg-big-item {{scope === 'local' ? 'tseg-big-item--on' : ''}}"
+      data-scope="local"
+      bindtap="onScope"
+    >地方</view>
+  </view>
+
+  <!-- 全国：按彩种分组 -->
+  <block wx:if="{{scope === 'national'}}">
+    <view class="tlot" wx:for="{{groups}}" wx:key="key">
+      <view class="tlot-title">·{{item.name}}</view>
+      <view class="tgrid">
+        <view
+          class="tbtn"
+          wx:for="{{item.items}}"
+          wx:for-item="a"
+          wx:key="key"
+          data-lottery="{{item.key}}"
+          data-algo="{{a.key}}"
+          bindtap="onPickAlgo"
+        >{{a.name}}</view>
+      </view>
+    </view>
+  </block>
+
+  <!-- 地方：暂未接入 -->
+  <view class="tempty" wx:else>
+    <view class="tempty-icon">🏙</view>
+    <view class="tempty-title">地方彩种暂未接入</view>
+    <view class="tempty-desc">目前只接入了福彩、体彩的全国性开奖数据源，地方彩种还没有对应的官方开奖接口。</view>
+  </view>
+
+</view>

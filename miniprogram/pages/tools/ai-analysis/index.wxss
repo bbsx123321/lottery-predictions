@@ -1,0 +1,155 @@
+/* AI 分析页 */
+
+.aapage {
+  padding-bottom: 60rpx;
+}
+
+/* ---------- 说明 ---------- */
+
+.aanote {
+  margin-top: 16rpx;
+  font-size: 23rpx;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.aanote--tight {
+  margin-top: 14rpx;
+}
+
+/* ---------- 参数区 ---------- */
+
+.aalabel {
+  margin-top: 28rpx;
+  margin-bottom: 12rpx;
+  font-size: 25rpx;
+  color: var(--text-secondary);
+}
+
+/* 段控件改成行内（不加左右外边距，页面里自己控位置） */
+.lseg--inline {
+  padding: 0;
+}
+
+.lseg--inline .lseg-item {
+  flex: 0 0 auto;
+  min-width: 150rpx;
+  padding: 0 24rpx;
+}
+
+/* 期数有 6 个（30~500），一行放不下 —— 改成 3 列 × 2 行 */
+.lseg--grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  padding: 0;
+}
+
+.lseg--grid .lseg-item {
+  flex: 0 0 calc((100% - 24rpx) / 3);
+  width: calc((100% - 24rpx) / 3);
+  min-width: 0;
+  padding: 0;
+}
+
+/* ---------- 按钮 ---------- */
+
+/* 全局 .lbtn 是照着 <button> 写的 —— <button> 的文字原生就居中。
+   这两处用的是 <view>，文字默认靠左，所以要自己居中。
+   flex 居中比 text-align 稳：父容器是 flex 时 view 会被压成内容宽，
+   只写 text-align 会失效。 */
+.aabtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* ---------- 指标 ---------- */
+
+/* 全局 .lstats 是「一行 4 格」，这里要放 8 个，得改成可换行的 4 列网格 */
+.lstats--tight {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22rpx 12rpx;
+  margin-top: 8rpx;
+}
+
+.lstats--tight .lstat {
+  flex: 0 0 calc(25% - 9rpx);
+  width: calc(25% - 9rpx);
+}
+
+.lstats--tight .lstat-value--sm {
+  font-size: 34rpx;
+}
+
+/* 冷热号 */
+.aaballs {
+  margin-top: 24rpx;
+}
+
+.aaball-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10rpx;
+  margin-bottom: 14rpx;
+}
+
+.aaball-label {
+  flex: 0 0 auto;
+  width: 72rpx;
+  font-size: 23rpx;
+  color: var(--text-muted);
+}
+
+.lball--cool {
+  background: var(--blue);
+}
+
+/* ---------- prompt 原文 ---------- */
+
+.aaprompt-toggle {
+  margin-top: 20rpx;
+  padding-top: 18rpx;
+  border-top: 1px solid var(--line);
+  font-size: 24rpx;
+  color: var(--accent-text);
+}
+
+.aaprompt {
+  display: block;
+  margin-top: 16rpx;
+  padding: 20rpx;
+  border-radius: 16rpx;
+  background: var(--row-tint);
+  font-size: 21rpx;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* ---------- 模型回复 ---------- */
+
+.aaresult {
+  display: block;
+  margin-top: 4rpx;
+  font-size: 28rpx;
+  line-height: 1.75;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+}
+
+/* 截断提示 */
+.aawarn {
+  margin-top: 20rpx;
+  padding: 18rpx 20rpx;
+  border-radius: 16rpx;
+  background: var(--warn-soft);
+  font-size: 22rpx;
+  line-height: 1.6;
+  color: var(--warn);
+}

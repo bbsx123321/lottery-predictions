@@ -1,0 +1,9 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "彩票预测云函数：开奖数据 + 用户预测",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

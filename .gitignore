@@ -1,0 +1,21 @@
+# 依赖
+node_modules/
+miniprogram_npm/
+
+# 开发者工具个人配置（含本地路径、编译模式等，不应入库）
+project.private.config.json
+project.private.config.json.bak
+
+# 日志与临时文件
+*.log
+run.log
+deploy.log
+.DS_Store
+Thumbs.db
+
+# 编辑器
+.vscode/
+.idea/
+
+# 服务端预置的 AI 凭据（由 scripts/sync-ai-config.js 生成，不入库）
+cloudfunctions/api/ai-config.js

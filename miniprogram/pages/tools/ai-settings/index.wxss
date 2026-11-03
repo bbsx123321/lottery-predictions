@@ -1,0 +1,258 @@
+/* AI 设置页 */
+
+.aipage {
+  padding-bottom: 60rpx;
+}
+
+/* ---------- 状态 ---------- */
+
+.astate {
+  display: flex;
+  align-items: center;
+}
+
+.astate-dot {
+  flex: 0 0 auto;
+  width: 16rpx;
+  height: 16rpx;
+  margin-right: 14rpx;
+  border-radius: 50%;
+  background: var(--text-muted);
+}
+
+.astate-dot--on {
+  background: var(--ok);
+  box-shadow: 0 0 0 6rpx var(--ok-soft);
+}
+
+.astate-text {
+  flex: 1;
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ---------- 说明块 ---------- */
+
+.anote {
+  margin-top: 18rpx;
+  font-size: 23rpx;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.anote-em {
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+.anote--foot {
+  margin-top: 24rpx;
+}
+
+/* ---------- 按钮 ---------- */
+
+.abtn {
+  margin-top: 24rpx;
+}
+
+.abtn--gap {
+  margin-top: 16rpx;
+}
+
+/* ---------- 配置列表（最多 3 套） ---------- */
+
+.acfg-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-top: 4rpx;
+}
+
+.acfg {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 16rpx 16rpx 14rpx;
+  border-radius: 20rpx;
+  background: var(--row-tint);
+  box-shadow: inset 0 0 0 2rpx transparent;
+}
+
+.acfg--active {
+  background: var(--accent-soft);
+  box-shadow: inset 0 0 0 2rpx var(--accent);
+}
+
+.acfg-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8rpx;
+}
+
+.acfg-name {
+  flex: 1;
+  min-width: 0;
+  font-size: 25rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.acfg-dot {
+  flex: none;
+  width: 14rpx;
+  height: 14rpx;
+  border-radius: 50%;
+  background: var(--line);
+}
+
+.acfg-dot--on {
+  background: var(--ok);
+}
+
+.acfg-model {
+  display: block;
+  margin-top: 6rpx;
+  font-size: 20rpx;
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.acfg--add {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  box-shadow: inset 0 0 0 2rpx var(--line);
+}
+
+.acfg-plus {
+  font-size: 34rpx;
+  line-height: 1;
+  color: var(--text-muted);
+}
+
+/* ---------- 表单行 ---------- */
+
+.afield {
+  margin-top: 28rpx;
+}
+
+.afield-label {
+  display: block;
+  margin-bottom: 12rpx;
+  font-size: 25rpx;
+  color: var(--text-secondary);
+}
+
+.afield-input {
+  width: 100%;
+  height: 82rpx;
+  padding: 0 24rpx;
+  border-radius: 20rpx;
+  background: var(--row-tint);
+  font-size: 26rpx;
+  color: var(--text-primary);
+}
+
+.afield-input--key {
+  flex: 1;
+  min-width: 0;
+  padding-right: 8rpx;
+  background: transparent;
+}
+
+.aph {
+  color: var(--text-muted);
+}
+
+/* 密钥行：输入框 + 显示/隐藏 */
+.afield-key {
+  display: flex;
+  align-items: center;
+  height: 82rpx;
+  padding: 0 24rpx;
+  border-radius: 20rpx;
+  background: var(--row-tint);
+}
+
+.afield-eye {
+  flex: 0 0 auto;
+  padding-left: 16rpx;
+  font-size: 23rpx;
+  color: var(--accent-text);
+}
+
+/* 选择器（模型 / 风格） */
+.afield-picker {
+  display: flex;
+  align-items: center;
+  height: 82rpx;
+  padding: 0 24rpx;
+  border-radius: 20rpx;
+  background: var(--row-tint);
+  font-size: 26rpx;
+  color: var(--text-primary);
+}
+
+.ahint {
+  margin-top: 12rpx;
+  font-size: 22rpx;
+  color: var(--text-muted);
+}
+
+/* ---------- 温度 ---------- */
+
+.atemp {
+  display: flex;
+  align-items: center;
+}
+
+.atemp-slider {
+  flex: 1;
+  margin: 0 8rpx 0 0;
+}
+
+.atemp-val {
+  flex: 0 0 auto;
+  width: 80rpx;
+  text-align: right;
+  font-size: 26rpx;
+  color: var(--text-secondary);
+}
+
+/* ---------- 测试结果 ---------- */
+
+.aresult {
+  margin-top: 28rpx;
+  padding: 24rpx;
+  border-radius: 20rpx;
+  background: var(--row-tint);
+}
+
+.aresult-label {
+  display: block;
+  font-size: 22rpx;
+  color: var(--text-muted);
+}
+
+.aresult-text {
+  display: block;
+  margin-top: 10rpx;
+  font-size: 27rpx;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.aresult-meta {
+  display: block;
+  margin-top: 14rpx;
+  font-size: 21rpx;
+  color: var(--text-muted);
+}

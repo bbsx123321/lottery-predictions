@@ -1,0 +1,102 @@
+/* 首页 —— 对照 design/home-v3.png 实现
+   颜色全部走 app.wxss 的 token，工具图标的 SVG 内嵌在 background-image 里 */
+
+/* ---------- 最新开奖 ---------- */
+
+.lcap {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 24rpx;
+}
+
+.lcap-left {
+  font-size: 24rpx;
+  color: var(--text-muted);
+}
+
+.lcap-right {
+  font-size: 24rpx;
+  color: var(--text-muted);
+}
+
+/* ---------- 工具箱 ---------- */
+
+.tool-grid {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 28rpx;
+  margin-top: 8rpx;
+}
+
+.tool-item {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.tool-icon {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 24rpx;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 36rpx 36rpx;
+}
+
+.tool-label {
+  font-size: 22rpx;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* 七个工具图标：浅色底 + 同色系描边，与 design/home-v3.pen 的 lucide 图标对应 */
+
+.tool-icon--red {
+  background-color: #fdeeec;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23e8483f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='22%207%2013.5%2015.5%208.5%2010.5%202%2017'/%3E%3Cpolyline points='16%207%2022%207%2022%2013'/%3E%3C/svg%3E");
+}
+
+.tool-icon--orange {
+  background-color: #fdf1e2;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23e08423' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m18%2014%204%204-4%204'/%3E%3Cpath d='m18%202%204%204-4%204'/%3E%3Cpath d='M2%2018h1.973a4%204%200%200%203.3-1.7l5.454-8.6a4%204%200%200%201%203.3-1.7H22'/%3E%3Cpath d='M2%206h1.972a4%204%200%200%201%203.6%201.8'/%3E%3Cpath d='m7%2015%205%205'/%3E%3C/svg%3E");
+}
+
+.tool-icon--blue {
+  background-color: #eaf0fd;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%232f6ae0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3%2012a9%209%200%201%200%209-9%209.75%209.75%200%200%200-6.74%202.74L3%208'/%3E%3Cpath d='M3%203v5h5'/%3E%3Cpath d='M12%207v5l4%202'/%3E%3C/svg%3E");
+}
+
+.tool-icon--green {
+  background-color: #e7f5ed;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%232f9e63' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='7' r='3.4'/%3E%3Ccircle cx='12' cy='17' r='3.4'/%3E%3Ccircle cx='7' cy='12' r='3.4'/%3E%3Ccircle cx='17' cy='12' r='3.4'/%3E%3C/svg%3E");
+}
+
+.tool-icon--purple {
+  background-color: #f1ecfd;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%237a5af0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m12%203-1.9%205.8a2%202%200%200%201-1.3%201.3L3%2012l5.8%201.9a2%202%200%200%201%201.3%201.3L12%2021l1.9-5.8a2%202%200%200%201%201.3-1.3L21%2012l-5.8-1.9a2%202%200%200%201-1.3-1.3z'/%3E%3Cpath d='M5%203v4M3%205h4M19%2017v4M17%2019h4'/%3E%3C/svg%3E");
+}
+
+.tool-icon--teal {
+  background-color: #e2f4f4;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231e9aa0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21.21%2015.89A10%2010%200%201%201%208%202.83'/%3E%3Cpath d='M22%2012A10%2010%200%200%200%2012%202v10z'/%3E%3C/svg%3E");
+}
+
+/* AI 分析：深蓝渐变实心底 + 灯泡字形。
+   前面七个是「浅色底 + 同色系描边」，AI 用实心渐变直接拉开层次，
+   小尺寸（36rpx ≈ 18px）下灯泡轮廓最完整，机器人的细线会糊成一团。 */
+.tool-icon--ai {
+  /* 兜底色：万一渐变没渲染出来，至少是深蓝底白字而不是隐形 */
+  background-color: #4f46e5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15%2014c.2-1%20.7-1.7%201.5-2.5%201-.9%201.5-2.2%201.5-3.5A6%206%200%200%200%206%208c0%201%20.2%202.2%201.5%203.5.7.7%201.3%201.5%201.5%202.5'/%3E%3Cpath d='M9%2018h6'/%3E%3Cpath d='M10%2022h4'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, #4f46e5, #3730a3);
+  background-size: 36rpx 36rpx, 100% 100%;
+  background-position: center, center;
+}
+
+.tool-icon--pink {
+  background-color: #fdeaf2;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23e0558f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='8' width='18' height='4' rx='1'/%3E%3Cpath d='M12%208v13'/%3E%3Cpath d='M19%2012v7a2%202%200%200%201-2%202H7a2%202%200%200%201-2-2v-7'/%3E%3Cpath d='M7.5%208a2.5%202.5%200%200%201%200-5A4.8%208%200%200%2012%208a4.8%208%200%200%2014.5-5%202.5%202.5%200%200%201%200%205'/%3E%3C/svg%3E");
+}

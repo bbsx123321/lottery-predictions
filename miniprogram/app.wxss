@@ -1,0 +1,371 @@
+/**
+ * 设计 token —— 全局唯一定义处。
+ *
+ * 色值与 design/home-v3.pen 的设计变量一一对应（1px 设计稿 = 2rpx）。
+ * 页面 WXSS 只引用 var(--xxx)，不写硬编码色值。
+ * 注意：CSS 变量挂在 page 上时，自定义组件（styleIsolation 默认 isolated）拿不到，
+ * 组件内部需要自己再声明一遍。
+ */
+page {
+  --accent: #e8483f;
+  --accent-soft: #fdeeec;
+  --accent-deep: #c4362e;
+  --accent-text: #c4362e;
+
+  --bg: #f4f5f8;
+  --surface: #ffffff;
+  --row-tint: #f8f9fb;
+  --line: #eef0f3;
+
+  --text-primary: #1b1e23;
+  --text-secondary: #5d6672;
+  --text-muted: #9aa3ae;
+
+  --blue: #2f6ae0;
+
+  --ok: #16a34a;
+  --ok-soft: #e9f7ef;
+  --warn: #d97706;
+  --warn-soft: #fdf3e3;
+  --danger: #dc2626;
+  --danger-soft: #fdecec;
+
+  --radius-card: 32rpx;
+  --radius-pill: 999rpx;
+  --shadow-card: 0 4rpx 24rpx rgba(27, 29, 40, 0.05);
+}
+
+view,
+text,
+button {
+  box-sizing: border-box;
+}
+
+/* ==========================================================
+   跨页面共用样式
+   首页、四个工具页、自检页都用同一套卡片 / 号码球 / 切换条，
+   放在这里全局生效，页面 wxss 只写自己独有的部分。
+   ========================================================== */
+
+/* ---------- 页面底色 ---------- */
+
+.lpage {
+  min-height: 100vh;
+  padding-bottom: 48rpx;
+  background: var(--bg);
+}
+
+/* ---------- 副标题行 ---------- */
+
+.lsub {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 32rpx 4rpx;
+  background: var(--surface);
+}
+
+.lsub-text {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}
+
+.lsub-btn {
+  padding: 8rpx 20rpx;
+  border-radius: var(--radius-pill);
+  background: var(--bg);
+  font-size: 22rpx;
+  color: var(--text-secondary);
+}
+
+/* ---------- 彩种切换条 ---------- */
+
+.ltabs {
+  display: flex;
+  gap: 16rpx;
+  padding: 16rpx 32rpx 20rpx;
+  background: var(--surface);
+  border-bottom: 2rpx solid var(--line);
+}
+
+/* 用 view 而不是 button —— button 的默认样式在 flex 里会把宽度撑开 */
+.ltab {
+  flex: 0 0 auto;
+  height: 64rpx;
+  line-height: 64rpx;
+  margin: 0;
+  padding: 0 28rpx;
+  border-radius: 32rpx;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 2rpx #e4e7ec;
+  font-size: 26rpx;
+  color: #545c66;
+  text-align: center;
+}
+
+.ltab--active {
+  background: var(--accent);
+  box-shadow: none;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ---------- 分段控件（工具页里的模式切换） ---------- */
+
+.lseg {
+  display: flex;
+  gap: 12rpx;
+  padding: 24rpx 32rpx 0;
+}
+
+.lseg-item {
+  flex: 1;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin: 0;
+  padding: 0;
+  border-radius: 30rpx;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 2rpx var(--line);
+  font-size: 25rpx;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.lseg-item--active {
+  background: var(--accent);
+  box-shadow: none;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ---------- 卡片 ---------- */
+
+.lcard {
+  margin: 32rpx 32rpx 0;
+  padding: 36rpx;
+  background: var(--surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+.lcard-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 24rpx;
+}
+
+.lcard-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.lcard-meta {
+  font-size: 22rpx;
+  color: var(--text-muted);
+}
+
+.lcard-link {
+  font-size: 22rpx;
+  color: var(--accent);
+}
+
+/* ---------- 号码球 ---------- */
+
+.lballs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.lball {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 28rpx;
+  font-weight: 600;
+  line-height: 72rpx;
+  text-align: center;
+}
+
+.lball--extra {
+  background: var(--blue);
+}
+
+.lball--sm {
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 20rpx;
+}
+
+.lball--md {
+  width: 52rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  font-size: 24rpx;
+}
+
+/* ---------- 分隔线 ---------- */
+
+.ldivider {
+  height: 2rpx;
+  margin: 8rpx 0 24rpx;
+  background: var(--line);
+}
+
+/* ---------- 四格指标 ---------- */
+
+.lstats {
+  display: flex;
+  gap: 12rpx;
+}
+
+.lstat {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.lstat-value {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.lstat-value--accent {
+  color: var(--accent);
+}
+
+.lstat-label {
+  font-size: 22rpx;
+  color: var(--text-muted);
+}
+
+/* ---------- 开奖表格（首页 + 往期开奖页共用） ---------- */
+
+.lthead,
+.ltrow {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  padding: 14rpx 16rpx;
+}
+
+.lthead {
+  padding-bottom: 8rpx;
+}
+
+.lth-col {
+  font-size: 20rpx;
+  color: var(--text-muted);
+}
+
+.lth-period {
+  flex-shrink: 0;
+  width: 108rpx;
+}
+
+.lth-date {
+  flex-shrink: 0;
+  width: 84rpx;
+}
+
+.lth-nums {
+  flex: 1;
+  min-width: 0;
+  color: var(--accent-deep);
+}
+
+.lth-extra {
+  flex-shrink: 0;
+  width: 48rpx;
+  text-align: center;
+}
+
+.lth-pool {
+  flex-shrink: 0;
+  width: 88rpx;
+  text-align: right;
+}
+
+.ltrow {
+  border-radius: 16rpx;
+}
+
+.ltrow--tint {
+  background: var(--row-tint);
+}
+
+.ltperiod {
+  font-size: 22rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.ltdate {
+  font-size: 22rpx;
+  color: var(--text-secondary);
+}
+
+.ltnums {
+  font-size: 21rpx;
+  color: var(--accent-deep);
+  line-height: 1.6;
+}
+
+.ltextra {
+  font-size: 22rpx;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.ltpool {
+  font-size: 22rpx;
+  color: var(--text-secondary);
+}
+
+/* ---------- 空态 / 错误 ---------- */
+
+.lstate {
+  padding: 80rpx 40rpx;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 26rpx;
+}
+
+.lstate--error {
+  color: var(--danger);
+}
+
+/* ---------- 主按钮 ---------- */
+
+.lbtn {
+  height: 84rpx;
+  line-height: 84rpx;
+  margin: 0;
+  padding: 0;
+  border-radius: 42rpx;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 29rpx;
+  font-weight: 500;
+}
+
+.lbtn::after {
+  border: none;
+}
+
+.lbtn--ghost {
+  background: var(--surface);
+  color: var(--text-primary);
+  box-shadow: inset 0 0 0 2rpx var(--line);
+}

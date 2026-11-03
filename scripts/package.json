@@ -1,0 +1,15 @@
+{
+  "name": "lottery-predictions-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "本地环境与自动化验证脚本（不属于小程序包体，不参与上传）",
+  "scripts": {
+    "verify": "node verify-miniprogram.js --project .. --out ../design/screenshot-home.png",
+    "open": "powershell -ExecutionPolicy Bypass -File ./open-devtools.ps1",
+    "auto": "powershell -ExecutionPolicy Bypass -File ./auto.ps1",
+    "deploy": "powershell -ExecutionPolicy Bypass -File ./deploy-cloudfunctions.ps1"
+  },
+  "dependencies": {
+    "miniprogram-automator": "^0.13.0"
+  }
+}

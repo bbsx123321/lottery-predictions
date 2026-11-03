@@ -1,0 +1,140 @@
+<view class="lpage aapage">
+
+  <!-- 彩种 -->
+  <view class="ltabs">
+    <view
+      class="ltab {{item.active ? 'ltab--active' : ''}}"
+      wx:for="{{tabs}}"
+      wx:key="key"
+      data-key="{{item.key}}"
+      bindtap="onSwitchTab"
+    >{{item.name}}</view>
+  </view>
+
+  <!-- 号码区（双色球/大乐透有主区+特别区） -->
+  <view class="lseg" wx:if="{{partOptions.length > 1}}">
+    <view
+      class="lseg-item {{part === item.key ? 'lseg-item--active' : ''}}"
+      wx:for="{{partOptions}}"
+      wx:key="key"
+      data-part="{{item.key}}"
+      bindtap="onSwitchPart"
+    >{{item.label}}</view>
+  </view>
+
+  <view class="lstate" wx:if="{{loading}}">正在加载开奖数据…</view>
+  <view class="lstate lstate--error" wx:if="{{error && !running}}">{{error}}</view>
+
+  <!-- 没配 AI 时的引导 -->
+  <view class="lcard" wx:if="{{!hasAI}}">
+    <view class="lcard-head">
+      <text class="lcard-title">还没配置 AI</text>
+      <text class="lcard-meta">需要密钥</text>
+    </view>
+    <view class="aanote">
+      AI 分析要用模型来解读统计指标。先去「AI 设置」里拉取服务端预置配置，
+      或者填一把自己的 API Key。
+    </view>
+    <view class="lbtn aabtn" bindtap="goAISettings">去 AI 设置</view>
+  </view>
+
+  <!-- 期数 + 风格 -->
+  <view class="lcard">
+    <view class="lcard-head">
+      <text class="lcard-title">分析参数</text>
+      <text class="lcard-meta">{{aiStatusText}}</text>
+    </view>
+
+    <view class="aalabel">统计期数</view>
+    <view class="lseg lseg--grid">
+      <view
+        class="lseg-item {{periodIndex === index ? 'lseg-item--active' : ''}}"
+        wx:for="{{periods}}"
+      wx:key="*this"
+        wx:for-index="index"
+        data-index="{{index}}"
+        bindtap="onSwitchPeriod"
+      >近 {{item}} 期</view>
+    </view>
+
+    <view class="aalabel">分析风格</view>
+    <view class="lseg lseg--inline">
+      <view
+        class="lseg-item {{styleIndex === index ? 'lseg-item--active' : ''}}"
+        wx:for="{{styleNames}}"
+      wx:key="*this"
+        wx:for-index="index"
+        data-index="{{index}}"
+        bindtap="onSwitchStyle"
+      >{{item}}</view>
+    </view>
+    <view class="aanote aaanote--tight">
+      风格会写进模型的 system 提示词，决定它是先摆结论、还是先讲风险。
+    </view>
+  </view>
+
+  <!-- 本地算出的指标 -->
+  <view class="lcard" wx:if="{{stats.length}}">
+    <view class="lcard-head">
+      <text class="lcard-title">喂给模型的数字</text>
+      <text class="lcard-meta">前端本地算</text>
+    </view>
+
+    <view class="lstats lstats--tight">
+      <view class="lstat" wx:for="{{stats}}" wx:key="label">
+        <text class="lstat-value lstat-value--sm">{{item.value}}</text>
+        <text class="lstat-label">{{item.label}}</text>
+      </view>
+    </view>
+
+    <view class="aaballs">
+      <view class="aaball-row">
+        <text class="aaball-label">热号</text>
+        <text class="lball lball--sm" wx:for="{{hot}}" wx:key="n">{{item.text}}</text>
+      </view>
+      <view class="aaball-row">
+        <text class="aaball-label">冷号</text>
+        <text class="lball lball--sm lball--cool" wx:for="{{cold}}" wx:key="n">{{item.text}}</text>
+      </view>
+      <view class="aaball-row" wx:if="{{missing.length}}">
+        <text class="aaball-label">未出</text>
+        <text class="lball lball--sm lball--extra" wx:for="{{missing}}" wx:key="n">{{item.text}}</text>
+      </view>
+    </view>
+
+    <view class="aaprompt-toggle" bindtap="togglePrompt">
+      <text>{{showPrompt ? '收起' : '展开'}}本次发给模型的原文
+      </text>
+    </view>
+    <text class="aaprompt" wx:if="{{showPrompt}}">{{promptText}}</text>
+  </view>
+
+  <!-- 生成按钮 -->
+  <view class="lcard">
+    <view class="lbtn aabtn" bindtap="onAnalyze" loading="{{running}}" disabled="{{running || !hasAI}}">
+      {{running ? '模型分析中… ' + elapsed + 's' : '生成 AI 分析'}}
+    </view>
+    <view class="aanote aaanote--tight">
+      统计在本地算完再发给模型，所以模型只需要解读、不需要自己数数。
+      彩票每期独立，历史不预示未来 —— 模型也会被要求提示这一点。
+    </view>
+  </view>
+
+  <!-- 模型回复 -->
+  <view class="lcard" wx:if="{{result}}">
+    <view class="lcard-head">
+      <text class="lcard-title">AI 解读</text>
+      <text class="lcard-meta">{{resultMeta}}</text>
+    </view>
+    <text class="aaresult">{{result}}</text>
+    <view class="aawarn" wx:if="{{truncated}}">
+      回复被 token 额度截断了，可以在「AI 设置」里换更强的模型再试。
+    </view>
+
+    <view class="aaprompt-toggle" wx:if="{{thinking}}" bindtap="toggleThinking">
+      <text>{{showThinking ? '收起' : '展开'}}模型的思考过程</text>
+    </view>
+    <text class="aaprompt" wx:if="{{showThinking && thinking}}">{{thinking}}</text>
+  </view>
+
+</view>

@@ -1,0 +1,1878 @@
+{
+  "version": "2.21",
+  "children": [
+    {
+      "type": "frame",
+      "id": "XUPaG",
+      "x": 0,
+      "y": 0,
+      "name": "彩票预测 · 首页",
+      "clip": true,
+      "width": 375,
+      "height": 812,
+      "fill": "$bg",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "Ou66Q",
+          "name": "状态栏",
+          "width": "fill_container",
+          "height": 44,
+          "padding": [
+            0,
+            18,
+            0,
+            22
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "XjlwX",
+              "name": "时间",
+              "fill": "$ink",
+              "content": "9:41",
+              "fontFamily": "$fontcn",
+              "fontSize": 15,
+              "fontWeight": "bold"
+            },
+            {
+              "type": "frame",
+              "id": "K2DJ8c",
+              "name": "系统图标",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "LefAZ",
+                  "name": "信号",
+                  "width": 17,
+                  "height": 17,
+                  "icon": "signal",
+                  "library": "lucide",
+                  "fill": "$ink"
+                },
+                {
+                  "type": "icon",
+                  "id": "bB4Jr",
+                  "name": "无线网络",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "$ink"
+                },
+                {
+                  "type": "icon",
+                  "id": "bovOS",
+                  "name": "电量",
+                  "width": 26,
+                  "height": 13,
+                  "icon": "battery-full",
+                  "library": "lucide",
+                  "fill": "$ink"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "U10p8",
+          "name": "标题栏",
+          "width": "fill_container",
+          "height": 48,
+          "padding": [
+            0,
+            16
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "iiGMp",
+              "name": "标题",
+              "fill": "$ink",
+              "content": "彩票预测",
+              "fontFamily": "$fontcn",
+              "fontSize": 22,
+              "fontWeight": "bold"
+            },
+            {
+              "type": "frame",
+              "id": "TkJuR",
+              "name": "微信胶囊",
+              "width": 88,
+              "height": 32,
+              "fill": "#ffffffd9",
+              "cornerRadius": 16,
+              "stroke": "#dfe3e9",
+              "strokeWidth": 1,
+              "gap": 9,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "tYbKO",
+                  "name": "更多",
+                  "gap": 4,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "Q1AXeL",
+                      "name": "点一",
+                      "fill": "#3c4149",
+                      "width": 4,
+                      "height": 4
+                    },
+                    {
+                      "type": "ellipse",
+                      "id": "QCmFk",
+                      "name": "点二",
+                      "fill": "#3c4149",
+                      "width": 4,
+                      "height": 4
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "Z8ucJS",
+                  "name": "竖线",
+                  "fill": "#e3e6ec",
+                  "width": 1,
+                  "height": 16
+                },
+                {
+                  "type": "frame",
+                  "id": "v1Xs7",
+                  "name": "关闭",
+                  "width": 20,
+                  "height": 20,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "O0ROO",
+                      "name": "圆环",
+                      "fill": "#ffffff",
+                      "width": 15,
+                      "height": 15,
+                      "stroke": "#3c4149",
+                      "strokeWidth": 1.4
+                    },
+                    {
+                      "type": "ellipse",
+                      "id": "t8ngGP",
+                      "name": "圆心",
+                      "fill": "#3c4149",
+                      "width": 5,
+                      "height": 5
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "tzxlD",
+          "name": "彩种切换",
+          "width": "fill_container",
+          "height": 32,
+          "gap": 8,
+          "padding": [
+            0,
+            16
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "xdcuE",
+              "name": "标签 双色球",
+              "height": 32,
+              "fill": "$accent",
+              "cornerRadius": 16,
+              "stroke": "#e8483f",
+              "padding": [
+                0,
+                14
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "wi7zF",
+                  "name": "文字",
+                  "fill": "#ffffff",
+                  "content": "双色球",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 13,
+                  "fontWeight": "bold"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "vUQ5h",
+              "name": "标签 福彩3D",
+              "height": 32,
+              "fill": "$card",
+              "cornerRadius": 16,
+              "stroke": "#e4e7ec",
+              "strokeWidth": 1,
+              "padding": [
+                0,
+                14
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "K9KoBn",
+                  "name": "文字",
+                  "fill": "#545c66",
+                  "content": "福彩3D",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "za3b2",
+              "name": "标签 快乐8",
+              "height": 32,
+              "fill": "$card",
+              "cornerRadius": 16,
+              "stroke": "#e4e7ec",
+              "strokeWidth": 1,
+              "padding": [
+                0,
+                14
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "PT2IJ",
+                  "name": "文字",
+                  "fill": "#545c66",
+                  "content": "快乐8",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "C6IAf",
+              "name": "标签 大乐透",
+              "height": 32,
+              "fill": "$card",
+              "cornerRadius": 16,
+              "stroke": "#e4e7ec",
+              "strokeWidth": 1,
+              "padding": [
+                0,
+                14
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Z0S9Zy",
+                  "name": "文字",
+                  "fill": "#545c66",
+                  "content": "大乐透",
+                  "fontFamily": "$fontcn",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "udwUy",
+          "name": "内容区",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            16,
+            16,
+            32,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "fVCMw",
+              "name": "最新开奖卡片",
+              "width": "fill_container",
+              "fill": "$card",
+              "cornerRadius": 16,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#1b1e2310",
+                "offset": {
+                  "x": 0,
+                  "y": 6
+                },
+                "blur": 20
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 18,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "s63IZu",
+                  "name": "标题行",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "GoqOB",
+                      "name": "期号",
+                      "fill": "$ink3",
+                      "content": "第 2024215 期",
+                      "fontFamily": "$fontcn",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "j762ca",
+                      "name": "开奖时间",
+                      "fill": "$ink3",
+                      "content": "2024-08-08 21:15 开奖",
+                      "fontFamily": "$fontcn",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "lr7VR",
+                  "name": "开奖号码",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "i48wQB",
+                      "name": "红球 05",
+                      "width": 36,
+                      "height": 36,
+                      "fill": "$accent",
+                      "cornerRadius": 18,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#e8483f33",
+                        "offset": {
+                          "x": 0,
+                          "y": 2
+                        },
+                        "blur": 6
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "gCeth",
+                          "name": "数字",
+                          "fill": "#ffffff",
+                          "content": "05",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 14,
+                          "fontWeight": "bold"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ypfRn",
+                      "name": "红球 08",
+                      "width": 36,
+                      "height": 36,
+                      "fill": "$accent",
+                      "cornerRadius": 18,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#e8483f33",
+                        "offset": {
+                          "x": 0,
+                          "y": 2
+                        },
+                        "blur": 6
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "tdJ0m",
+                          "name": "数字",
+                          "fill": "#ffffff",
+                          "content": "08",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 14,
+                          "fontWeight": "bold"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "bQwm7",
+                      "name": "红球 12",
+                      "width": 36,
+                      "height": 36,
+                      "fill": "$accent",
+                      "cornerRadius": 18,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#e8483f33",
+                        "offset": {
+                          "x": 0,
+                          "y": 2
+                        },
+                        "blur": 6
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "YIgsV",
+                          "name": "数字",
+                          "fill": "#ffffff",
+                          "content": "12",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 14,
+                          "fontWeight": "bold"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ENkhh",
+                      "name": "红球 19",
+                      "width": 36,
+                      "height": 36,
+                      "fill": "$accent",
+                      "cornerRadius": 18,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#e8483f33",
+                        "offset": {
+                          "x": 0,
+                          "y": 2
+                        },
+                        "blur": 6
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "k4OM2",
+                          "name": "数字",
+                          "fill": "#ffffff",
+                          "content": "19",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 14,
+                          "fontWeight": "bold"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "keeEU",
+                      "name": "红球 24",
+                      "width": 36,
+                      "height": 36,
+                      "fill": "$accent",
+                      "cornerRadius": 18,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#e8483f33",
+                        "offset": {
+                          "x": 0,
+                          "y": 2
+                        },
+                        "blur": 6
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Lsgzf",
+                          "name": "数字",
+                          "fill": "#ffffff",
+                          "content": "24",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 14,
+                          "fontWeight": "bold"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "s7Qgsl",
+                      "name": "红球 31",
+                      "width": 36,
+                      "height": 36,
+                      "fill": "$accent",
+                      "cornerRadius": 18,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#e8483f33",
+                        "offset": {
+                          "x": 0,
+                          "y": 2
+                        },
+                        "blur": 6
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "mmZdR",
+                          "name": "数字",
+                          "fill": "#ffffff",
+                          "content": "31",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 14,
+                          "fontWeight": "bold"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "tTvPE",
+                      "name": "蓝球 09",
+                      "width": 36,
+                      "height": 36,
+                      "fill": "$blue",
+                      "cornerRadius": 18,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#2f6ae033",
+                        "offset": {
+                          "x": 0,
+                          "y": 2
+                        },
+                        "blur": 6
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "lp3to",
+                          "name": "数字",
+                          "fill": "#ffffff",
+                          "content": "09",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 14,
+                          "fontWeight": "bold"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "iZKeX",
+                  "name": "分隔线",
+                  "fill": "$line",
+                  "width": "fill_container",
+                  "height": 1
+                },
+                {
+                  "type": "frame",
+                  "id": "Y1G7x",
+                  "name": "奖池统计",
+                  "width": "fill_container",
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "uZeYw",
+                      "name": "指标 奖池奖金",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "uSrwt",
+                          "name": "数值行",
+                          "gap": 2,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "mpYtS",
+                              "name": "数值",
+                              "fill": "$accent",
+                              "content": "8.24",
+                              "fontFamily": "$fontcn",
+                              "fontSize": 17,
+                              "fontWeight": "bold"
+                            },
+                            {
+                              "type": "text",
+                              "id": "J1hgje",
+                              "name": "单位",
+                              "fill": "$ink3",
+                              "content": "亿",
+                              "fontFamily": "$fontcn",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "PdzQM",
+                          "name": "标签",
+                          "fill": "$ink3",
+                          "content": "奖池奖金",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "yuXjN",
+                      "name": "指标 一等奖",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "eZTi5",
+                          "name": "数值行",
+                          "gap": 2,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "h38Rm",
+                              "name": "数值",
+                              "fill": "$ink",
+                              "content": "12",
+                              "fontFamily": "$fontcn",
+                              "fontSize": 17,
+                              "fontWeight": "bold"
+                            },
+                            {
+                              "type": "text",
+                              "id": "F8PGc1",
+                              "name": "单位",
+                              "fill": "$ink3",
+                              "content": "注",
+                              "fontFamily": "$fontcn",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "IScaV",
+                          "name": "标签",
+                          "fill": "$ink3",
+                          "content": "一等奖",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "FmQqo",
+                      "name": "指标 二等奖",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "GfuO1",
+                          "name": "数值行",
+                          "gap": 2,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "SYhVP",
+                              "name": "数值",
+                              "fill": "$ink",
+                              "content": "86",
+                              "fontFamily": "$fontcn",
+                              "fontSize": 17,
+                              "fontWeight": "bold"
+                            },
+                            {
+                              "type": "text",
+                              "id": "JkyTC",
+                              "name": "单位",
+                              "fill": "$ink3",
+                              "content": "注",
+                              "fontFamily": "$fontcn",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "cDdUM",
+                          "name": "标签",
+                          "fill": "$ink3",
+                          "content": "二等奖",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "rjYUR",
+                      "name": "指标 全国销量",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "D6Cz3",
+                          "name": "数值行",
+                          "gap": 2,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "a1ItpS",
+                              "name": "数值",
+                              "fill": "$ink",
+                              "content": "3.71",
+                              "fontFamily": "$fontcn",
+                              "fontSize": 17,
+                              "fontWeight": "bold"
+                            },
+                            {
+                              "type": "text",
+                              "id": "mhc0u",
+                              "name": "单位",
+                              "fill": "$ink3",
+                              "content": "亿",
+                              "fontFamily": "$fontcn",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "ycqqh",
+                          "name": "标签",
+                          "fill": "$ink3",
+                          "content": "全国销量",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "R6OUmV",
+              "name": "工具箱卡片",
+              "width": "fill_container",
+              "fill": "$card",
+              "cornerRadius": 16,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#1b1e2310",
+                "offset": {
+                  "x": 0,
+                  "y": 6
+                },
+                "blur": 20
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 18,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "A5pIRi",
+                  "name": "标题行",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "H0vWQf",
+                      "name": "标题",
+                      "fill": "$ink",
+                      "content": "工具箱",
+                      "fontFamily": "$fontcn",
+                      "fontSize": 16,
+                      "fontWeight": "bold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "iihxf",
+                      "name": "工具数量",
+                      "fill": "$ink3",
+                      "content": "8 个工具",
+                      "fontFamily": "$fontcn",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "AFVLK",
+                  "name": "工具网格",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 14,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "QyyVn",
+                      "name": "工具行 1",
+                      "width": "fill_container",
+                      "gap": 9,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "vasnS",
+                          "name": "工具 走势图",
+                          "width": 70,
+                          "layout": "vertical",
+                          "gap": 6,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "UHnRJ",
+                              "name": "图标",
+                              "width": 36,
+                              "height": 36,
+                              "fill": "$tool-red-soft",
+                              "cornerRadius": 12,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "jAldH",
+                                  "name": "图标",
+                                  "width": 18,
+                                  "height": 18,
+                                  "icon": "trending-up",
+                                  "library": "lucide",
+                                  "fill": "$tool-red"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "MRHRY",
+                              "name": "名称",
+                              "fill": "$ink2",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "走势图",
+                              "textAlign": "center",
+                              "fontFamily": "$fontcn",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "s5tiD",
+                          "name": "工具 模拟选号",
+                          "width": 70,
+                          "layout": "vertical",
+                          "gap": 6,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "qfqXZ",
+                              "name": "图标",
+                              "width": 36,
+                              "height": 36,
+                              "fill": "$tool-orange-soft",
+                              "cornerRadius": 12,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "bEf4j",
+                                  "name": "图标",
+                                  "width": 18,
+                                  "height": 18,
+                                  "icon": "shuffle",
+                                  "library": "lucide",
+                                  "fill": "$tool-orange"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "XBAh6",
+                              "name": "名称",
+                              "fill": "$ink2",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "模拟选号",
+                              "textAlign": "center",
+                              "fontFamily": "$fontcn",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "eVPfV",
+                          "name": "工具 往期开奖",
+                          "width": 70,
+                          "layout": "vertical",
+                          "gap": 6,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "rv2eV",
+                              "name": "图标",
+                              "width": 36,
+                              "height": 36,
+                              "fill": "$tool-blue-soft",
+                              "cornerRadius": 12,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "mpWqo",
+                                  "name": "图标",
+                                  "width": 18,
+                                  "height": 18,
+                                  "icon": "history",
+                                  "library": "lucide",
+                                  "fill": "$tool-blue"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "rrvdD",
+                              "name": "名称",
+                              "fill": "$ink2",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "往期开奖",
+                              "textAlign": "center",
+                              "fontFamily": "$fontcn",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "v8IPo",
+                          "name": "工具 吉号分析",
+                          "width": 70,
+                          "layout": "vertical",
+                          "gap": 6,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "RC9Y9",
+                              "name": "图标",
+                              "width": 36,
+                              "height": 36,
+                              "fill": "$tool-green-soft",
+                              "cornerRadius": 12,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "dd69M",
+                                  "name": "图标",
+                                  "width": 18,
+                                  "height": 18,
+                                  "icon": "clover",
+                                  "library": "lucide",
+                                  "fill": "$tool-green"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "mHULz",
+                              "name": "名称",
+                              "fill": "$ink2",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "吉号分析",
+                              "textAlign": "center",
+                              "fontFamily": "$fontcn",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "h4cZje",
+                      "name": "工具行 2",
+                      "width": "fill_container",
+                      "gap": 9,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "ZYX1v",
+                          "name": "工具 智能规律",
+                          "width": 70,
+                          "layout": "vertical",
+                          "gap": 6,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "OJ8L0",
+                              "name": "图标",
+                              "width": 36,
+                              "height": 36,
+                              "fill": "$tool-purple-soft",
+                              "cornerRadius": 12,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "p6rNt4",
+                                  "name": "图标",
+                                  "width": 18,
+                                  "height": 18,
+                                  "icon": "sparkles",
+                                  "library": "lucide",
+                                  "fill": "$tool-purple"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "z3Lwq",
+                              "name": "名称",
+                              "fill": "$ink2",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "智能规律",
+                              "textAlign": "center",
+                              "fontFamily": "$fontcn",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Kwfk4",
+                          "name": "工具 选号分布",
+                          "width": 70,
+                          "layout": "vertical",
+                          "gap": 6,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "SLECg",
+                              "name": "图标",
+                              "width": 36,
+                              "height": 36,
+                              "fill": "$tool-teal-soft",
+                              "cornerRadius": 12,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "E66Rg",
+                                  "name": "图标",
+                                  "width": 18,
+                                  "height": 18,
+                                  "icon": "chart-pie",
+                                  "library": "lucide",
+                                  "fill": "$tool-teal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "HnTSN",
+                              "name": "名称",
+                              "fill": "$ink2",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "选号分布",
+                              "textAlign": "center",
+                              "fontFamily": "$fontcn",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "MlNh4",
+                          "name": "工具 幸运选号",
+                          "width": 70,
+                          "layout": "vertical",
+                          "gap": 6,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "B4h7P3",
+                              "name": "图标",
+                              "width": 36,
+                              "height": 36,
+                              "fill": "$tool-pink-soft",
+                              "cornerRadius": 12,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "Q3RSmC",
+                                  "name": "图标",
+                                  "width": 18,
+                                  "height": 18,
+                                  "icon": "gift",
+                                  "library": "lucide",
+                                  "fill": "$tool-pink"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "Pggee",
+                              "name": "名称",
+                              "fill": "$ink2",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "幸运选号",
+                              "textAlign": "center",
+                              "fontFamily": "$fontcn",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "KPASW",
+                          "name": "工具 AI 分析",
+                          "width": 70,
+                          "layout": "vertical",
+                          "gap": 6,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "IU263",
+                              "name": "图标",
+                              "width": 36,
+                              "height": 36,
+                              "cornerRadius": 12,
+                              "clip": true,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "fill": {
+                                "type": "gradient",
+                                "gradientType": "linear",
+                                "enabled": true,
+                                "rotation": 135,
+                                "size": {
+                                  "height": 1
+                                },
+                                "colors": [
+                                  {
+                                    "color": "#4f46e5",
+                                    "position": 0
+                                  },
+                                  {
+                                    "color": "#3730a3",
+                                    "position": 1
+                                  }
+                                ]
+                              },
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "BLM2W",
+                                  "name": "图标",
+                                  "width": 18,
+                                  "height": 18,
+                                  "icon": "lightbulb",
+                                  "library": "lucide",
+                                  "fill": "#ffffff"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "IOL4V",
+                              "name": "名称",
+                              "fill": "$ink2",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "AI 分析",
+                              "textAlign": "center",
+                              "fontFamily": "$fontcn",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "DNtyJ",
+              "name": "往期开奖卡片",
+              "width": "fill_container",
+              "fill": "$card",
+              "cornerRadius": 16,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#1b1e2310",
+                "offset": {
+                  "x": 0,
+                  "y": 6
+                },
+                "blur": 20
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 18,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "J916z",
+                  "name": "标题行",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "GSdld",
+                      "name": "标题",
+                      "fill": "$ink",
+                      "content": "往期开奖",
+                      "fontFamily": "$fontcn",
+                      "fontSize": 16,
+                      "fontWeight": "bold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "s0RVk",
+                      "name": "更多",
+                      "fill": "$accent",
+                      "content": "查看全部 ›",
+                      "fontFamily": "$fontcn",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Rm14j",
+                  "name": "开奖表格",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "v6bfIR",
+                      "name": "表头",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "padding": [
+                        0,
+                        8,
+                        4,
+                        8
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "thBA3",
+                          "name": "期号列",
+                          "fill": "$ink3",
+                          "textGrowth": "fixed-width",
+                          "width": 54,
+                          "content": "期号",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "tkXTT",
+                          "name": "日期列",
+                          "fill": "$ink3",
+                          "textGrowth": "fixed-width",
+                          "width": 42,
+                          "content": "开奖日期",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "awsii",
+                          "name": "红球列",
+                          "fill": "$ink3",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "红球",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "X6xmPW",
+                          "name": "蓝球列",
+                          "fill": "$ink3",
+                          "textGrowth": "fixed-width",
+                          "width": 24,
+                          "content": "蓝球",
+                          "textAlign": "center",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Hre42",
+                          "name": "奖池列",
+                          "fill": "$ink3",
+                          "textGrowth": "fixed-width",
+                          "width": 44,
+                          "content": "奖池",
+                          "textAlign": "right",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "H2HFFk",
+                      "name": "开奖 1",
+                      "width": "fill_container",
+                      "fill": "$row-tint",
+                      "cornerRadius": 8,
+                      "gap": 8,
+                      "padding": [
+                        7,
+                        8
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "axvv7",
+                          "name": "期号",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": 54,
+                          "content": "2024215",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 11,
+                          "fontWeight": "bold"
+                        },
+                        {
+                          "type": "text",
+                          "id": "CeaNH",
+                          "name": "日期",
+                          "fill": "$ink2",
+                          "textGrowth": "fixed-width",
+                          "width": 42,
+                          "content": "08-08",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "AVXwD",
+                          "name": "红球",
+                          "fill": "$accent-deep",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "05 08 12 19 24 31",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 10.5,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ojc8C",
+                          "name": "蓝球",
+                          "fill": "$blue",
+                          "textGrowth": "fixed-width",
+                          "width": 24,
+                          "content": "09",
+                          "textAlign": "center",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 11,
+                          "fontWeight": "bold"
+                        },
+                        {
+                          "type": "text",
+                          "id": "yAKJg",
+                          "name": "奖池",
+                          "fill": "$ink2",
+                          "textGrowth": "fixed-width",
+                          "width": 44,
+                          "content": "8.24亿",
+                          "textAlign": "right",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "KDf5C",
+                      "name": "开奖 2",
+                      "width": "fill_container",
+                      "fill": "#ffffff",
+                      "cornerRadius": 8,
+                      "gap": 8,
+                      "padding": [
+                        7,
+                        8
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "SPw3g",
+                          "name": "期号",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": 54,
+                          "content": "2024214",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 11,
+                          "fontWeight": "bold"
+                        },
+                        {
+                          "type": "text",
+                          "id": "kMkHH",
+                          "name": "日期",
+                          "fill": "$ink2",
+                          "textGrowth": "fixed-width",
+                          "width": 42,
+                          "content": "08-06",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "UdOI5",
+                          "name": "红球",
+                          "fill": "$accent-deep",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "02 11 17 22 26 33",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 10.5,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "sru4i",
+                          "name": "蓝球",
+                          "fill": "$blue",
+                          "textGrowth": "fixed-width",
+                          "width": 24,
+                          "content": "04",
+                          "textAlign": "center",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 11,
+                          "fontWeight": "bold"
+                        },
+                        {
+                          "type": "text",
+                          "id": "g3p9v",
+                          "name": "奖池",
+                          "fill": "$ink2",
+                          "textGrowth": "fixed-width",
+                          "width": 44,
+                          "content": "8.05亿",
+                          "textAlign": "right",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "LrjIr",
+                      "name": "开奖 3",
+                      "width": "fill_container",
+                      "fill": "$row-tint",
+                      "cornerRadius": 8,
+                      "gap": 8,
+                      "padding": [
+                        7,
+                        8
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Rk8c5",
+                          "name": "期号",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": 54,
+                          "content": "2024213",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 11,
+                          "fontWeight": "bold"
+                        },
+                        {
+                          "type": "text",
+                          "id": "E5dLwd",
+                          "name": "日期",
+                          "fill": "$ink2",
+                          "textGrowth": "fixed-width",
+                          "width": 42,
+                          "content": "08-04",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "iAtD1",
+                          "name": "红球",
+                          "fill": "$accent-deep",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "01 09 14 20 25 30",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 10.5,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "GZW3I",
+                          "name": "蓝球",
+                          "fill": "$blue",
+                          "textGrowth": "fixed-width",
+                          "width": 24,
+                          "content": "12",
+                          "textAlign": "center",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 11,
+                          "fontWeight": "bold"
+                        },
+                        {
+                          "type": "text",
+                          "id": "I4LAzE",
+                          "name": "奖池",
+                          "fill": "$ink2",
+                          "textGrowth": "fixed-width",
+                          "width": 44,
+                          "content": "7.91亿",
+                          "textAlign": "right",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "KhQgm",
+                      "name": "开奖 4",
+                      "width": "fill_container",
+                      "fill": "#ffffff",
+                      "cornerRadius": 8,
+                      "gap": 8,
+                      "padding": [
+                        7,
+                        8
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "I8Xvt",
+                          "name": "期号",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": 54,
+                          "content": "2024212",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 11,
+                          "fontWeight": "bold"
+                        },
+                        {
+                          "type": "text",
+                          "id": "YYAJi",
+                          "name": "日期",
+                          "fill": "$ink2",
+                          "textGrowth": "fixed-width",
+                          "width": 42,
+                          "content": "08-01",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "o1FrEb",
+                          "name": "红球",
+                          "fill": "$accent-deep",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "03 07 15 18 28 32",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 10.5,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "x8XDe",
+                          "name": "蓝球",
+                          "fill": "$blue",
+                          "textGrowth": "fixed-width",
+                          "width": 24,
+                          "content": "06",
+                          "textAlign": "center",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 11,
+                          "fontWeight": "bold"
+                        },
+                        {
+                          "type": "text",
+                          "id": "yCn2g",
+                          "name": "奖池",
+                          "fill": "$ink2",
+                          "textGrowth": "fixed-width",
+                          "width": 44,
+                          "content": "7.83亿",
+                          "textAlign": "right",
+                          "fontFamily": "$fontcn",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "accent": {
+      "type": "color",
+      "value": "#e8483f"
+    },
+    "accent-soft": {
+      "type": "color",
+      "value": "#fdeeec"
+    },
+    "accent-deep": {
+      "type": "color",
+      "value": "#c4362e"
+    },
+    "bg": {
+      "type": "color",
+      "value": "#f4f5f8"
+    },
+    "card": {
+      "type": "color",
+      "value": "#ffffff"
+    },
+    "ink": {
+      "type": "color",
+      "value": "#1b1e23"
+    },
+    "ink2": {
+      "type": "color",
+      "value": "#5d6672"
+    },
+    "ink3": {
+      "type": "color",
+      "value": "#9aa3ae"
+    },
+    "line": {
+      "type": "color",
+      "value": "#eef0f3"
+    },
+    "row-tint": {
+      "type": "color",
+      "value": "#f8f9fb"
+    },
+    "blue": {
+      "type": "color",
+      "value": "#2f6ae0"
+    },
+    "fontcn": {
+      "type": "string",
+      "value": "Noto Sans SC"
+    },
+    "tool-red": {
+      "type": "color",
+      "value": "#e8483f"
+    },
+    "tool-red-soft": {
+      "type": "color",
+      "value": "#fdeeec"
+    },
+    "tool-orange": {
+      "type": "color",
+      "value": "#e08423"
+    },
+    "tool-orange-soft": {
+      "type": "color",
+      "value": "#fdf1e2"
+    },
+    "tool-blue": {
+      "type": "color",
+      "value": "#2f6ae0"
+    },
+    "tool-blue-soft": {
+      "type": "color",
+      "value": "#eaf0fd"
+    },
+    "tool-green": {
+      "type": "color",
+      "value": "#2f9e63"
+    },
+    "tool-green-soft": {
+      "type": "color",
+      "value": "#e7f5ed"
+    },
+    "tool-purple": {
+      "type": "color",
+      "value": "#7a5af0"
+    },
+    "tool-purple-soft": {
+      "type": "color",
+      "value": "#f1ecfd"
+    },
+    "tool-teal": {
+      "type": "color",
+      "value": "#1e9aa0"
+    },
+    "tool-teal-soft": {
+      "type": "color",
+      "value": "#e2f4f4"
+    },
+    "tool-pink": {
+      "type": "color",
+      "value": "#e0558f"
+    },
+    "tool-pink-soft": {
+      "type": "color",
+      "value": "#fdeaf2"
+    }
+  },
+  "fileToken": "5ed2abc7-9ce9-433a-82ff-cb2d7d279c54"
+}
